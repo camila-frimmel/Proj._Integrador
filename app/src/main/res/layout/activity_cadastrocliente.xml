@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradiente_color"
+    android:orientation="vertical"
+    app:layout_constraintCircleRadius="20dp"
+    tools:context=".CadastroCliente">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="104dp"
+            android:layout_height="105dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.052"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.043"
+            app:srcCompat="@drawable/frimmel_transparente" />
+
+        <TextView
+            android:id="@+id/textFrimmelC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/itim"
+            android:text="Frimmel"
+            android:textAllCaps="true"
+            android:textColor="#5A6B59"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.094" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="409dp"
+            android:layout_height="587dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.986">
+
+            <Button
+                android:id="@+id/CancelarCadastro"
+                android:layout_width="130dp"
+                android:layout_height="60dp"
+                android:backgroundTint="#B8D4B6"
+                android:fontFamily="@font/itim"
+                android:text="Cancelar"
+                android:textColor="#D43535"
+                android:textSize="18sp"
+                app:cornerRadius="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.814"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.882" />
+
+            <EditText
+                android:id="@+id/CadastroCPF"
+                android:layout_width="306dp"
+                android:layout_height="62dp"
+                android:background="@drawable/background_corner"
+                android:drawableLeft="@drawable/baseline_person_24"
+                android:drawablePadding="6dp"
+                android:ems="10"
+                android:fontFamily="@font/itim"
+                android:hint="CPF / CNPJ"
+                android:inputType="text"
+                android:textColor="#1A8414"
+                android:textColorHint="#1A8414"
+                android:textIsSelectable="false"
+                android:textSize="18sp"
+                app:circularflow_radiusInDP="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.495"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.386" />
+
+            <EditText
+                android:id="@+id/CadastroTelefone"
+                android:layout_width="306dp"
+                android:layout_height="62dp"
+                android:background="@drawable/background_corner"
+                android:drawableLeft="@drawable/baseline_phone_24"
+                android:drawablePadding="6dp"
+                android:ems="10"
+                android:fontFamily="@font/itim"
+                android:hint="Telefone"
+                android:inputType="text"
+                android:textColor="#1A8414"
+                android:textColorHint="#1A8414"
+                android:textIsSelectable="false"
+                android:textSize="18sp"
+                app:circularflow_radiusInDP="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.495"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.676" />
+
+            <EditText
+                android:id="@+id/CadastroEmail"
+                android:layout_width="306dp"
+                android:layout_height="62dp"
+                android:background="@drawable/background_corner"
+                android:drawableLeft="@drawable/baseline_email_24"
+                android:drawablePadding="6dp"
+                android:ems="10"
+                android:fontFamily="@font/itim"
+                android:hint="E-mail"
+                android:inputType="text"
+                android:textColor="#1A8414"
+                android:textColorHint="#1A8414"
+                android:textIsSelectable="false"
+                android:textSize="18sp"
+                app:circularflow_radiusInDP="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.495"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.533" />
+
+            <EditText
+                android:id="@+id/CadastroNome"
+                android:layout_width="306dp"
+                android:layout_height="62dp"
+                android:background="@drawable/background_corner"
+                android:drawableLeft="@drawable/baseline_person_24"
+                android:drawablePadding="6dp"
+                android:ems="10"
+                android:fontFamily="@font/itim"
+                android:hint="Nome / Razão"
+                android:inputType="text"
+                android:textColor="#1A8414"
+                android:textColorHint="#1A8414"
+                android:textIsSelectable="false"
+                android:textSize="18sp"
+                app:circularflow_radiusInDP="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.495"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.245" />
+
+            <TextView
+                android:id="@+id/textCadastroCliente"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/itim"
+                android:text="Cadastro do Cliente"
+                android:textColor="#5A6B59"
+                android:textSize="30sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.496"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.11" />
+
+            <Button
+                android:id="@+id/ContinuarCadastro"
+                android:layout_width="130dp"
+                android:layout_height="60dp"
+                android:backgroundTint="#B8D4B6"
+                android:fontFamily="@font/itim"
+                android:text="Continuar"
+                android:textColor="#1A8414"
+                android:textSize="18sp"
+                app:cornerRadius="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.182"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.882" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

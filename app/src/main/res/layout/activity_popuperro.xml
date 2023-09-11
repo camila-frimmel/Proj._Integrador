@@ -1,0 +1,69 @@
+<!-- res/layout/popup_layout.xml -->
+<androidx.constraintlayout.widget.ConstraintLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#98FF96"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Conteúdo do pop-up aqui -->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="409dp"
+        android:layout_height="282dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="104dp"
+            android:layout_height="105dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.052"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.09"
+            app:srcCompat="@drawable/frimmel_transparente" />
+
+        <Button
+            android:id="@+id/FecharErro"
+            android:layout_width="77dp"
+            android:layout_height="60dp"
+            android:backgroundTint="#00FFFFFF"
+            android:fontFamily="@font/itim"
+            android:text="X"
+            android:textColor="#5A6B59"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <MultiAutoCompleteTextView
+            android:id="@+id/MultiAutoTexto"
+            android:layout_width="348dp"
+            android:layout_height="84dp"
+            android:background="#00FFFFFF"
+            android:fontFamily="@font/itim"
+            android:text="Se acontecer algum problema ao conectar na sua conta, ligue para nós que vamos resolver seu problema. "
+            android:textColor="#5A6B59"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.671" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
