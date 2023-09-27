@@ -7,7 +7,15 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.internet.frimmel.databinding.ActivityLogclienteBinding;
+
 public class LoginCliente extends AppCompatActivity {
+
+    private ActivityLogclienteBinding binding;
+
+    private FirebaseAuth mAuth;
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,6 +29,7 @@ public class LoginCliente extends AppCompatActivity {
         public void onClick(View view) {
             Intent intent = new Intent(getApplicationContext(), MenuCliente.class);
             startActivity(intent);
+
         }
     });
 
