@@ -79,7 +79,7 @@ public class LoginCliente extends AppCompatActivity {
             if (task.isSuccessful()){
 
                 finish();
-                startActivity(new Intent(this, MenuCliente.class));
+                //startActivity(new Intent(this, MenuCliente.class));
             }else {
                 Toast.makeText(this,"ERRO!, email ou senha incorreto", Toast.LENGTH_SHORT).show();
             }
