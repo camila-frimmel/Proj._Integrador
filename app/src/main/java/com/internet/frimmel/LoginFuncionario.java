@@ -63,7 +63,7 @@ public class LoginFuncionario extends AppCompatActivity {
             if (task.isSuccessful()){
 
                 finish();
-                //startActivity(new Intent(this, MenuFuncionario.class));
+                startActivity(new Intent(this, MenuFuncionario.class));
             }else {
                 Toast.makeText(this,"ERRO!, email ou senha incorreto", Toast.LENGTH_SHORT).show();
             }
