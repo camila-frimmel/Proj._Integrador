@@ -21,22 +21,15 @@ public class LoginCliente extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_logcliente);
-        Button entrarC = findViewById(R.id.entrarCliente);
         Button aju = findViewById(R.id.PrecisaAjuda);
         Button Esquece = findViewById(R.id.EsqueceuSenha);
 
-        mAuth = FirebaseAuth.getInstance();
+        binding = ActivityLogclienteBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
+        mAuth = FirebaseAuth.getInstance();
         binding.entrarCliente.setOnClickListener(view -> validaDados());
 
-    entrarC.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            Intent intent = new Intent(getApplicationContext(), MenuCliente.class);
-            startActivity(intent);
-
-        }
-    });
 
     aju.setOnClickListener(new View.OnClickListener() {
         @Override
@@ -79,7 +72,7 @@ public class LoginCliente extends AppCompatActivity {
             if (task.isSuccessful()){
 
                 finish();
-                //startActivity(new Intent(this, MenuCliente.class));
+               startActivity(new Intent(this, MenuCliente.class));
             }else {
                 Toast.makeText(this,"ERRO!, email ou senha incorreto", Toast.LENGTH_SHORT).show();
             }

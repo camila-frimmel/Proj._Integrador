@@ -23,6 +23,9 @@ public class LoginFuncionario extends AppCompatActivity {
         setContentView(R.layout.activity_logfuncionario);
         Button entrarF = findViewById(R.id.entrarFuncionario);
 
+        binding = ActivityLogfuncionarioBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
         mAuth = FirebaseAuth.getInstance();
 
         binding.entrarFuncionario.setOnClickListener(view -> validaDados());
