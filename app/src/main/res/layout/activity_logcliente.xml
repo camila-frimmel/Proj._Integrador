@@ -46,6 +46,7 @@
             app:layout_constraintVertical_bias="0.103" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout5"
             android:layout_width="413dp"
             android:layout_height="492dp"
             android:backgroundTint="#00FFFFFF"
@@ -97,6 +98,7 @@
                 android:id="@+id/passwordCliente"
                 android:layout_width="306dp"
                 android:layout_height="62dp"
+                android:autofillHints=""
                 android:background="@drawable/background_corner"
                 android:drawableLeft="@drawable/baseline_lock_24"
                 android:drawablePadding="6dp"
@@ -111,8 +113,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.495"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:autofillHints="" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <Button
                 android:id="@+id/entrarCliente"
@@ -135,7 +136,7 @@
                 android:id="@+id/PrecisaAjuda"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#02B8D4B6"
+                android:backgroundTint="#00B8D4B6"
                 android:fontFamily="@font/itim"
                 android:text="Precisa de Ajuda?"
                 android:textColor="#5A6B59"

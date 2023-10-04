@@ -21,8 +21,6 @@ public class LoginCliente extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_logcliente);
-        Button aju = findViewById(R.id.PrecisaAjuda);
-        Button Esquece = findViewById(R.id.EsqueceuSenha);
 
         binding = ActivityLogclienteBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -30,22 +28,33 @@ public class LoginCliente extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         binding.entrarCliente.setOnClickListener(view -> validaDados());
 
+        binding.PrecisaAjuda.setOnClickListener(view -> Ajuda());
 
-    aju.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            Intent ajuda = new Intent(getApplicationContext(), AjudaCliente.class);
-            startActivity(ajuda);
-        }
-    });
+        binding.EsqueceuSenha.setOnClickListener(view -> Esqueceu());
 
-    Esquece.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            Intent esq = new Intent(getApplicationContext(), EsqueceuSenha.class);
-            startActivity(esq);
-        }
-    });
+    }
+
+    private void Esqueceu(){
+        Button Esquece = findViewById(R.id.EsqueceuSenha);
+
+        Esquece.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent esq = new Intent(getApplicationContext(), EsqueceuSenha.class);
+                startActivity(esq);
+            }
+        });
+    }
+
+    private void Ajuda() {
+        Button aju = findViewById(R.id.PrecisaAjuda);
+        aju.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent ajuda = new Intent(getApplicationContext(), AjudaCliente.class);
+                startActivity(ajuda);
+            }
+        });
     }
 
     private void validaDados() {
