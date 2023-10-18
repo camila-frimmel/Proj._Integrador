@@ -67,28 +67,3 @@ public class DadosCliente extends AppCompatActivity {
 
     }
 }
-
-
-  /*  // Suponha que você tenha uma lista de IDs de contas disponíveis
-    String[] accountIds = {"ID_CONTA_1", "ID_CONTA_2", "ID_CONTA_3"};
-
-    // Use um diálogo de seleção de conta
-    AlertDialog.Builder builder = new AlertDialog.Builder(this);
-builder.setTitle("Selecione a conta");
-
-        builder.setItems(accountIds, (dialog, which) -> {
-        String selectedAccountId = accountIds[which];
-        // Use o ID selecionado para acessar os dados da conta
-        db.collection("cliente").document(selectedAccountId).get().addOnSuccessListener(
-        documentSnapshot -> {
-        if (documentSnapshot.exists()) {
-        String nomeRazaoSocial = documentSnapshot.getString("nome/razao social");
-        textNome.setText(nomeRazaoSocial);
-        } else {
-        Toast.makeText(this, "ERRO!", Toast.LENGTH_SHORT).show();
-        }
-        }
-        );
-        });
-
-        builder.create().show();*/
