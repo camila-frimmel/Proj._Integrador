@@ -11,7 +11,7 @@ public class CadastroParte2 extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cadastro2);
+      /*  setContentView(R.layout.activity_cadastro2);
         Button Volte = findViewById(R.id.VoltarCadastro2);
 
         Volte.setOnClickListener(new View.OnClickListener() {
@@ -20,6 +20,6 @@ public class CadastroParte2 extends AppCompatActivity {
                 Intent volta = new Intent(getApplicationContext(), CadastroCliente.class);
                 startActivity(volta);
             }
-        });
+        });*/
     }
 }

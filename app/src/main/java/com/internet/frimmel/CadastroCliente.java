@@ -27,7 +27,7 @@ public class CadastroCliente extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastrocliente);
-        Button Continua = findViewById(R.id.ContinuarCadastro);
+        Button Continua = findViewById(R.id.ConfirmarCadastro);
         Button Cancela = findViewById(R.id.CancelarCadastro);
 
         FirebaseApp.initializeApp(this);

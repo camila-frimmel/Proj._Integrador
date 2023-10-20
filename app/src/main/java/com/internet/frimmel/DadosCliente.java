@@ -3,9 +3,7 @@ package com.internet.frimmel;
 import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -15,6 +13,9 @@ public class DadosCliente extends AppCompatActivity {
 
     private FirebaseFirestore db;
     private TextView textNome;
+
+    public DadosCliente(String nome, String cpf, String email, String telefone) {
+    }
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
