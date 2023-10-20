@@ -14,7 +14,7 @@ public class DadosCliente extends AppCompatActivity {
     private FirebaseFirestore db;
     private TextView textNome;
 
-    public DadosCliente(String nome, String cpf, String email, String telefone) {
+    public DadosCliente(String nome, String cpf, String email, String telefone, String cep, String endereco, String senha) {
     }
 
     protected void onCreate(Bundle savedInstanceState) {
