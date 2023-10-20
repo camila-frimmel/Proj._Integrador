@@ -41,7 +41,14 @@ public class CadastroCliente extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
 
-
+        CadastroNome = findViewById(R.id.CadastroNome);
+        CadastroCPF = findViewById(R.id.CadastroCPF);
+        CadastroEmail = findViewById(R.id.CadastroEmail);
+        CadastroTelefone = findViewById(R.id.CadastroTelefone);
+        CadastroCEP = findViewById(R.id.CadastroCEP);
+        CadastroEndereço = findViewById(R.id.CadastroEndereço);
+        CadastroPlano = findViewById(R.id.CadastroPlano);
+        CadastroSenha = findViewById(R.id.CadastroSenha);
 
         Salvar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,7 +109,7 @@ public class CadastroCliente extends AppCompatActivity {
     private void salvarDadosNoFirestore(String nome, String cpf, String email, String telefone, String cep, String endereco, String plano, String senha) {
         // Crie um novo documento na coleção "cliente" com os dados inseridos
         db.collection("cliente")
-                .add(new DadosCliente(nome, cpf, email, telefone, cep, endereco, senha))
+                .add(new DadosCliente(nome, cpf, email, telefone, cep, endereco, senha, plano))
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {

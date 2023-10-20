@@ -11,13 +11,15 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 public class DadosCliente extends AppCompatActivity {
 
+    public DadosCliente() {}
+
     private FirebaseFirestore db;
     private TextView textNome;
     private TextView textCPF;
     private TextView textEndereço;
     private TextView textPlano;
 
-    public DadosCliente(String nome, String cpf, String email, String telefone, String cep, String endereco, String senha) {
+    public DadosCliente(String nome, String cpf, String email, String telefone, String cep, String endereco, String senha, String plano) {
     }
 
     protected void onCreate(Bundle savedInstanceState) {
