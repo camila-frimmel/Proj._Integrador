@@ -13,6 +13,9 @@ public class DadosCliente extends AppCompatActivity {
 
     private FirebaseFirestore db;
     private TextView textNome;
+    private TextView textCPF;
+    private TextView textEndereço;
+    private TextView textPlano;
 
     public DadosCliente(String nome, String cpf, String email, String telefone, String cep, String endereco, String senha) {
     }
@@ -25,6 +28,9 @@ public class DadosCliente extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
 
         textNome = findViewById(R.id.textNome);
+        textCPF = findViewById(R.id.textCPF);
+        textEndereço = findViewById(R.id.textEndereço);
+        textPlano = findViewById(R.id.textPlano);
 
         // Obtém o email do cliente autenticado a partir do Firebase Authentication
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
@@ -51,6 +57,13 @@ public class DadosCliente extends AppCompatActivity {
                                         if (documentSnapshot.exists()) {
                                             String nomeRazaoSocial = documentSnapshot.getString("Nome");
                                             textNome.setText(nomeRazaoSocial);
+                                            String cpf = documentSnapshot.getString("CPF");
+                                            textCPF.setText(cpf);
+                                            String endereco = documentSnapshot.getString("Endereço");
+                                            textEndereço.setText(endereco);
+                                            String plano = documentSnapshot.getString("Plano");
+                                            textPlano.setText(plano);
+
                                         } else {
                                             Toast.makeText(this, "ERRO!", Toast.LENGTH_SHORT).show();
                                         }
