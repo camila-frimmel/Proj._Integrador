@@ -12,16 +12,6 @@ public class AjudaCliente extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ajudacliente);
         Button aju = findViewById(R.id.NumeroContato);
-        Button erro = findViewById(R.id.ErroCadastro);
-
-    findViewById(R.id.ErroCadastro).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Exibir o pop-up
-                PopupErro popupDialog = new PopupErro();
-                popupDialog.show(getSupportFragmentManager(), "popup_dialog");
-            }
-        });
 
         findViewById(R.id.NumeroContato).setOnClickListener(new View.OnClickListener() {
             @Override
