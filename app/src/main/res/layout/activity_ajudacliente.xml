@@ -20,55 +20,40 @@
             android:id="@+id/imageView"
             android:layout_width="104dp"
             android:layout_height="105dp"
+            android:layout_marginStart="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.055"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.046"
+            app:layout_constraintVertical_bias="0.06"
             app:srcCompat="@drawable/frimmel_transparente" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
             android:layout_width="407dp"
-            android:layout_height="464dp"
+            android:layout_height="440dp"
+            android:layout_marginBottom="112dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.622">
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent">
 
             <Button
                 android:id="@+id/NumeroContato"
                 android:layout_width="355dp"
                 android:layout_height="80dp"
+                android:layout_marginTop="180dp"
+                android:layout_marginBottom="180dp"
                 android:backgroundTint="#B8D4B6"
                 android:fontFamily="@font/itim"
                 android:text="Número de Contato"
                 android:textColor="#1A8414"
                 android:textSize="30sp"
+                android:textStyle="bold"
                 app:cornerRadius="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.263" />
-
-            <Button
-                android:id="@+id/ErroCadastro"
-                android:layout_width="355dp"
-                android:layout_height="80dp"
-                android:backgroundTint="#B8D4B6"
-                android:fontFamily="@font/itim"
-                android:text="Erro de Usuário"
-                android:textColor="#1A8414"
-                android:textSize="30sp"
-                app:cornerRadius="20dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.606" />
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -82,10 +67,11 @@
             android:textColor="#5A6B59"
             android:textSize="30sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.134"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.094" />
+            app:layout_constraintVertical_bias="0.463" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

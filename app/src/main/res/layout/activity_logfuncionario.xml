@@ -21,31 +21,37 @@
             android:id="@+id/textFrimmelF"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="69dp"
+            android:layout_marginEnd="142dp"
             android:fontFamily="@font/itim"
             android:text="Frimmel"
             android:textAllCaps="true"
             android:textColor="#5A6B59"
             android:textSize="30sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/constraintLayout6"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.958"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.101" />
+            app:layout_constraintVertical_bias="0.0" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout6"
             android:layout_width="413dp"
             android:layout_height="492dp"
+            android:layout_marginBottom="83dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.652">
+            app:layout_constraintStart_toStartOf="parent">
 
             <EditText
                 android:id="@+id/EditFuncionario"
                 android:layout_width="306dp"
                 android:layout_height="62dp"
+                android:layout_marginStart="53dp"
+                android:layout_marginEnd="54dp"
+                android:layout_marginBottom="40dp"
                 android:background="@drawable/background_corner"
                 android:drawableLeft="@drawable/baseline_person_24"
                 android:drawablePadding="6dp"
@@ -57,33 +63,39 @@
                 android:textColorHint="#1A8414"
                 android:textIsSelectable="false"
                 android:textSize="18sp"
+                android:textStyle="bold"
                 app:circularflow_radiusInDP="20sp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/passwordFuncionario"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.495"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.286" />
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
                 android:id="@+id/textEsqueceuSenha"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="128dp"
+                android:layout_marginTop="47dp"
+                android:layout_marginEnd="131dp"
                 android:fontFamily="@font/itim"
                 android:text="Funcionário"
                 android:textColor="#5A6B59"
                 android:textSize="30sp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/EditFuncionario"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.104" />
+                app:layout_constraintVertical_bias="0.0" />
 
             <EditText
                 android:id="@+id/passwordFuncionario"
                 android:layout_width="306dp"
                 android:layout_height="62dp"
+                android:layout_marginStart="53dp"
+                android:layout_marginEnd="54dp"
+                android:layout_marginBottom="52dp"
                 android:background="@drawable/background_corner"
                 android:drawableLeft="@drawable/baseline_lock_24"
                 android:drawablePadding="6dp"
@@ -94,27 +106,29 @@
                 android:textColor="#1A8414"
                 android:textColorHint="#1A8414"
                 android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/entrarFuncionario"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.495"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent" />
 
             <Button
                 android:id="@+id/entrarFuncionario"
                 android:layout_width="206dp"
                 android:layout_height="71dp"
+                android:layout_marginStart="102dp"
+                android:layout_marginEnd="105dp"
+                android:layout_marginBottom="73dp"
                 android:backgroundTint="#B8D4B6"
+                android:fontFamily="@font/itim"
                 android:text="Entrar"
                 android:textColor="#1A8414"
                 android:textSize="30sp"
+                android:textStyle="bold"
                 app:cornerRadius="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.497"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.826" />
+                app:layout_constraintStart_toStartOf="parent" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -123,12 +137,12 @@
             android:id="@+id/imageView"
             android:layout_width="104dp"
             android:layout_height="105dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="34dp"
+            android:layout_marginBottom="592dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.052"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.054"
             app:srcCompat="@drawable/frimmel_transparente" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

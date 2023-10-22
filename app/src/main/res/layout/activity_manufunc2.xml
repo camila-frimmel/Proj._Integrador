@@ -21,149 +21,165 @@
             android:id="@+id/imageView"
             android:layout_width="104dp"
             android:layout_height="105dp"
+            android:layout_marginStart="17dp"
+            android:layout_marginTop="27dp"
+            android:layout_marginBottom="599dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.055"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.043"
             app:srcCompat="@drawable/frimmel_transparente" />
 
         <TextView
             android:id="@+id/textFrimmelMF"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="65dp"
+            android:layout_marginEnd="142dp"
             android:fontFamily="@font/itim"
             android:text="Frimmel"
             android:textAllCaps="true"
             android:textColor="#5A6B59"
             android:textSize="30sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/constraintLayout8"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.094" />
+            app:layout_constraintVertical_bias="0.0" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout8"
             android:layout_width="409dp"
             android:layout_height="587dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginBottom="4dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.972">
+            app:layout_constraintStart_toStartOf="parent">
 
             <TextView
                 android:id="@+id/textAgenda"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="53dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="54dp"
                 android:fontFamily="@font/itim"
                 android:text="Agenda de Manutenção"
                 android:textColor="#5A6B59"
                 android:textSize="30sp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/constraintLayout9"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.495"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.029" />
+                app:layout_constraintVertical_bias="0.0" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout9"
                 android:layout_width="407dp"
                 android:layout_height="482dp"
+                android:layout_marginStart="1dp"
+                android:layout_marginEnd="1dp"
+                android:layout_marginBottom="37dp"
                 android:background="@drawable/background_corner"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.647">
+                app:layout_constraintStart_toStartOf="parent">
 
                 <TextView
                     android:id="@+id/textNome"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="33dp"
+                    android:layout_marginEnd="329dp"
                     android:fontFamily="@font/itim"
                     android:text="Nome:"
                     android:textColor="#1A8414"
                     android:textSize="23sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/textEndereco"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.046"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.075" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/textEndereco"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="294dp"
                     android:fontFamily="@font/itim"
                     android:text="Endereço:"
                     android:textColor="#1A8414"
                     android:textSize="23sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/textHorario"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.051"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.146" />
+                    app:layout_constraintStart_toStartOf="parent" />
 
                 <TextView
                     android:id="@+id/textHorario"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="312dp"
                     android:fontFamily="@font/itim"
                     android:text="Horário:"
                     android:textColor="#1A8414"
                     android:textSize="23sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/textFhone"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.048"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.218" />
+                    app:layout_constraintStart_toStartOf="parent" />
 
                 <TextView
                     android:id="@+id/textFhone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="301dp"
                     android:fontFamily="@font/itim"
                     android:text="Telefone:"
                     android:textColor="#1A8414"
                     android:textSize="23sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/textMotivo"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.05"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.291" />
+                    app:layout_constraintStart_toStartOf="parent" />
 
                 <TextView
                     android:id="@+id/textMotivo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="162dp"
+                    android:layout_marginBottom="12dp"
                     android:fontFamily="@font/itim"
                     android:text="Motivo da Manutenção:"
                     android:textColor="#1A8414"
                     android:textSize="23sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/constraintLayout10"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.089"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.363" />
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout10"
                     android:layout_width="371dp"
                     android:layout_height="254dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="17dp"
                     android:background="@drawable/background_corner2"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.444"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.929">
+                    app:layout_constraintStart_toStartOf="parent">
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
