@@ -17,7 +17,9 @@ public class DadosCliente extends AppCompatActivity {
     private TextView textNome;
     private TextView textCPF;
     private TextView textEndereço;
+    private TextView textNumero;
     private TextView textPlano;
+    private TextView textMensal;
 
     public DadosCliente(String nome, String cpf, String email, String telefone, String cep, String endereco, String senha, String plano) {
     }
@@ -33,6 +35,9 @@ public class DadosCliente extends AppCompatActivity {
         textCPF = findViewById(R.id.textCPF);
         textEndereço = findViewById(R.id.textEndereço);
         textPlano = findViewById(R.id.textPlano);
+        textNumero = findViewById(R.id.textNumero);
+        textMensal = findViewById(R.id.textMensal);
+
 
         // Obtém o email do cliente autenticado a partir do Firebase Authentication
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
@@ -63,8 +68,13 @@ public class DadosCliente extends AppCompatActivity {
                                             textCPF.setText(cpf);
                                             String endereco = documentSnapshot.getString("Endereço");
                                             textEndereço.setText(endereco);
+                                            String numero = documentSnapshot.getString("Numero");
+                                            textNumero.setText(numero);
                                             String plano = documentSnapshot.getString("Plano");
                                             textPlano.setText(plano);
+                                            String mensal = documentSnapshot.getString("Mensalidade");
+                                            textMensal.setText(mensal);
+
 
                                         } else {
                                             Toast.makeText(this, "ERRO!", Toast.LENGTH_SHORT).show();
