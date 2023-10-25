@@ -108,6 +108,7 @@
                 android:hint="E-mail"
                 android:inputType="textEmailAddress"
                 android:paddingHorizontal="6dp"
+                android:textColor="#1A8414"
                 android:textColorHint="#1A8414"
                 android:textSize="18sp"
                 android:textStyle="bold"
