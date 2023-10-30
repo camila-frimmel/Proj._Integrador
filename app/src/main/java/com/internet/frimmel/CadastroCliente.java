@@ -73,8 +73,8 @@ public class CadastroCliente extends AppCompatActivity {
         Cancela.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent canc = new Intent(getApplicationContext(), MenuFuncionario.class);
-                startActivity(canc);
+                PopupCad popupDialog = new PopupCad();
+                popupDialog.show(getSupportFragmentManager(), "popup_dialog");
             }
         });
 
