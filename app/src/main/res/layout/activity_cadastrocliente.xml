@@ -279,7 +279,7 @@
 
             <Button
                 android:id="@+id/ConfirmarCadastro"
-                android:layout_width="130dp"
+                android:layout_width="wrap_content"
                 android:layout_height="60dp"
                 android:layout_marginStart="52dp"
                 android:layout_marginBottom="28dp"
