@@ -2,6 +2,7 @@ package com.internet.frimmel;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,6 +17,9 @@ import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class CadastroCliente extends AppCompatActivity {
 
@@ -34,7 +38,7 @@ public class CadastroCliente extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastrocliente);
-        Button Salvar = findViewById(R.id.ConfirmarCadastro);
+        Salvar = findViewById(R.id.ConfirmarCadastro);
         Button Cancela = findViewById(R.id.CancelarCadastro);
 
         FirebaseApp.initializeApp(this);
@@ -53,8 +57,6 @@ public class CadastroCliente extends AppCompatActivity {
         Salvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*Intent cont = new Intent(getApplicationContext(), CadastroParte2.class);
-                startActivity(cont);*/
                 String nome = CadastroNome.getText().toString();
                 String cpf = CadastroCPF.getText().toString();
                 String email = CadastroEmail.getText().toString();
@@ -64,9 +66,10 @@ public class CadastroCliente extends AppCompatActivity {
                 String plano = CadastroPlano.getText().toString();
                 String senha = CadastroSenha.getText().toString();
 
-                validaDados(email, senha);
-                salvarDadosNoFirestore (nome, cpf, email, telefone, cep, endereco, plano, senha);
-
+                if (validaCampos(nome, cpf, email, telefone, cep, endereco, plano, senha)) {
+                    CriacontaFirebase(email, senha);
+                    salvarDadosNoFirestore(nome, cpf, email, telefone, cep, endereco, plano, senha);
+                }
             }
         });
 
@@ -77,51 +80,57 @@ public class CadastroCliente extends AppCompatActivity {
                 popupDialog.show(getSupportFragmentManager(), "popup_dialog");
             }
         });
-
     }
 
-    private void validaDados(String email, String senha) {
-
-        if (!email.isEmpty()) {
-            if (!senha.isEmpty()) {
-                CriacontaFirebase(email, senha);
-            } else {
-                Toast.makeText(this, "Insira a senha", Toast.LENGTH_SHORT).show();
-            }
-        } else {
-            Toast.makeText(this, "Insira o email", Toast.LENGTH_SHORT).show();
+    private boolean validaCampos(String nome, String cpf, String email, String telefone, String cep, String endereco, String plano, String senha) {
+        if (nome.isEmpty() || cpf.isEmpty() || email.isEmpty() || telefone.isEmpty() || cep.isEmpty() || endereco.isEmpty() || plano.isEmpty() || senha.isEmpty()) {
+            Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_SHORT).show();
+            return false;
         }
+        if (!email.contains("@")) {
+            Toast.makeText(this, "Email inválido", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
     }
 
-    private void CriacontaFirebase(String email, String senha){
-        mAuth.createUserWithEmailAndPassword(
-                email, senha
-        ).addOnCompleteListener(task -> {
-            if (task.isSuccessful()){
-                finish();
-            }else {
-                Toast.makeText(this,"ERRO!", Toast.LENGTH_SHORT).show();
-            }
-        });
+    private void CriacontaFirebase(String email, String senha) {
+        mAuth.createUserWithEmailAndPassword(email, senha)
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        Toast.makeText(this, "Conta criada com sucesso", Toast.LENGTH_SHORT).show();
+                        // Redirecione o usuário ou realize ação após o sucesso
+                    } else {
+                        Toast.makeText(this, "Erro ao criar conta", Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
-
 
     private void salvarDadosNoFirestore(String nome, String cpf, String email, String telefone, String cep, String endereco, String plano, String senha) {
-        // Crie um novo documento na coleção "cliente" com os dados inseridos
+        Map<String, Object> dados = new HashMap<>();
+        dados.put("Nome", nome);
+        dados.put("CPF", cpf);
+        dados.put("Email", email);
+        dados.put("Telefone", telefone);
+        dados.put("CEP", cep);
+        dados.put("Endereço", endereco);
+        dados.put("Plano", plano);
+        dados.put("Senha", senha);
+
         db.collection("cliente")
-                .add(new DadosCliente(nome, cpf, email, telefone, cep, endereco, senha, plano))
+                .add(dados)
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
-                        // Sucesso: O documento foi criado com êxito
                         String novoDocumentoId = documentReference.getId();
-                        // Você pode fazer algo com o novoDocumentoId, se necessário
+                        Toast.makeText(CadastroCliente.this, "Salvo no banco", Toast.LENGTH_SHORT).show();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        // Lidar com erros
+                        Log.e("Firestore", "Erro ao salvar dados no Firestore", e);
+                        Toast.makeText(CadastroCliente.this, "Erro ao salvar dados no Firestore", Toast.LENGTH_SHORT).show();
                     }
                 });
     }
