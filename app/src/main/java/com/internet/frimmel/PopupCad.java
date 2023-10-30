@@ -29,13 +29,13 @@ public class PopupCad extends DialogFragment {
             }
         });
 
-    /*    view.findViewById(R.id.CancelaCad).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.CancelaCad).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 @SuppressLint("RestrictedApi") Intent canc = new Intent(getApplicationContext(), MenuFuncionario.class);
                 startActivity(canc);
             }
-        }); */
+        });
 
      return view;
     }
