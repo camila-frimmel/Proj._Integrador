@@ -25,8 +25,6 @@ import com.itextpdf.text.DocumentException;
 
 public class DadosCliente extends AppCompatActivity {
 
-    public DadosCliente() {}
-
     private FirebaseFirestore db;
     private TextView textNome;
     private TextView textCPF;
@@ -35,14 +33,11 @@ public class DadosCliente extends AppCompatActivity {
     private TextView textPlano;
     private TextView textMensal;
 
-    public DadosCliente(String nome, String cpf, String email, String telefone, String cep, String endereco, String senha, String plano) {
-    }
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dadoscliente);
 
-        FirebaseApp.initializeApp(this);
+        //FirebaseApp.initializeApp(this);
         db = FirebaseFirestore.getInstance();
 
         textNome = findViewById(R.id.textNome);
@@ -109,22 +104,21 @@ public class DadosCliente extends AppCompatActivity {
         try {
             String filePath = getFilesDir() + "/cliente.pdf";
             Document document = new Document();
-            PdfWriter.getInstance((com.itextpdf.text.Document) document, new FileOutputStream(filePath));
+            PdfWriter.getInstance(document, new FileOutputStream(filePath));
             document.open();
 
-
-            document.add(new Paragraph("Nome: " + textNome));
-            document.add(new Paragraph("CPF: " + textCPF));
-            document.add(new Paragraph("Endereço: " + textEndereço));
-            document.add(new Paragraph("Plano: " + textPlano));
-            document.add(new Paragraph("Telefone: " + textNumero));
+            document.add(new Paragraph("Nome: " + textNome.getText()));
+            document.add(new Paragraph("CPF: " + textCPF.getText()));
+            document.add(new Paragraph("Endereço: " + textEndereço.getText()));
+            document.add(new Paragraph("Plano: " + textPlano.getText()));
+            document.add(new Paragraph("Telefone: " + textNumero.getText()));
 
             document.close();
 
             // Carregue o PDF no Firebase Storage
             FirebaseStorage storage = FirebaseStorage.getInstance();
             StorageReference storageRef = storage.getReference();
-            StorageReference pdfRef = storageRef.child("gs://appfrimmel.appspot.com/"); // Especifique o caminho no Storage
+            StorageReference pdfRef = storageRef.child("gs://appfrimmel.appspot.com/cliente.pdf"); // Especifique o caminho no Storage
 
             File file = new File(filePath);
 
@@ -139,5 +133,6 @@ public class DadosCliente extends AppCompatActivity {
             e.printStackTrace();
             Toast.makeText(this, "Erro ao criar o PDF", Toast.LENGTH_SHORT).show();
         }
+
     }
 }
