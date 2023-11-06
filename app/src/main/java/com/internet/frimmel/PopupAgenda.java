@@ -31,7 +31,7 @@ public class PopupAgenda extends DialogFragment {
        view.findViewById(R.id.CancelaAgenda).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                @SuppressLint("RestrictedApi") Intent cancela = new Intent(getApplicationContext(), MenuFuncionario.class);
+                @SuppressLint("RestrictedApi") Intent cancela = new Intent(getApplicationContext(), MenuCliente.class);
                 startActivity(cancela);
             }
         });
