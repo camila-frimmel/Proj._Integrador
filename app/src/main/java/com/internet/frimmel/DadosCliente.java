@@ -1,13 +1,27 @@
 package com.internet.frimmel;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
 
 public class DadosCliente extends AppCompatActivity {
 
@@ -68,8 +82,8 @@ public class DadosCliente extends AppCompatActivity {
                                             textCPF.setText(cpf);
                                             String endereco = documentSnapshot.getString("Endereço");
                                             textEndereço.setText(endereco);
-                                            String numero = documentSnapshot.getString("Numero");
-                                            textNumero.setText(numero);
+                                            String telefone = documentSnapshot.getString("Telefone");
+                                            textNumero.setText(telefone);
                                             String plano = documentSnapshot.getString("Plano");
                                             textPlano.setText(plano);
                                             String mensal = documentSnapshot.getString("Mensalidade");
@@ -91,5 +105,39 @@ public class DadosCliente extends AppCompatActivity {
             Toast.makeText(this, "Nenhum usuário autenticado", Toast.LENGTH_SHORT).show();
         }
 
+
+        try {
+            String filePath = getFilesDir() + "/cliente.pdf";
+            Document document = new Document();
+            PdfWriter.getInstance((com.itextpdf.text.Document) document, new FileOutputStream(filePath));
+            document.open();
+
+
+            document.add(new Paragraph("Nome: " + textNome));
+            document.add(new Paragraph("CPF: " + textCPF));
+            document.add(new Paragraph("Endereço: " + textEndereço));
+            document.add(new Paragraph("Plano: " + textPlano));
+            document.add(new Paragraph("Telefone: " + textNumero));
+
+            document.close();
+
+            // Carregue o PDF no Firebase Storage
+            FirebaseStorage storage = FirebaseStorage.getInstance();
+            StorageReference storageRef = storage.getReference();
+            StorageReference pdfRef = storageRef.child("gs://appfrimmel.appspot.com/"); // Especifique o caminho no Storage
+
+            File file = new File(filePath);
+
+            pdfRef.putFile(Uri.fromFile(file))
+                    .addOnSuccessListener(taskSnapshot -> {
+                        Toast.makeText(this, "PDF enviado para o Firebase Storage com sucesso!", Toast.LENGTH_SHORT).show();
+                    })
+                    .addOnFailureListener(e -> {
+                        Toast.makeText(this, "Erro ao enviar o PDF para o Firebase Storage: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    });
+        } catch (DocumentException | IOException e) {
+            e.printStackTrace();
+            Toast.makeText(this, "Erro ao criar o PDF", Toast.LENGTH_SHORT).show();
+        }
     }
 }
