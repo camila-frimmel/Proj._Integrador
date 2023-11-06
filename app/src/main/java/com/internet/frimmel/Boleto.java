@@ -34,7 +34,7 @@ public class Boleto extends AppCompatActivity {
         StorageReference pdfRef = storageRef.child("gs://appfrimmel.appspot.com/"); // Especifique o caminho do arquivo no Storage
 
         // Especifique o caminho local onde você deseja salvar o PDF
-        File localFile = new File(getExternalFilesDir(null), "gs://appfrimmel.appspot.com/PROJETO INTEGRADOR (1).pdf");
+        File localFile = new File(getExternalFilesDir(null), "cliente.pdf");
 
         pdfRef.getFile(localFile)
                 .addOnSuccessListener(taskSnapshot -> {
