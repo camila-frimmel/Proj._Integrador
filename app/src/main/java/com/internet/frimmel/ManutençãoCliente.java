@@ -59,7 +59,7 @@ public class ManutençãoCliente extends AppCompatActivity {
         Cancelar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent canc = new Intent(getApplicationContext(), MenuCliente.class);
+                Intent canc = new Intent(getApplicationContext(), PopupAgenda.class);
                 startActivity(canc);
             }
         });
