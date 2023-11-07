@@ -1,6 +1,7 @@
 package com.internet.frimmel;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -19,7 +20,16 @@ import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -128,6 +138,7 @@ public class CadastroCliente extends AppCompatActivity {
                         Toast.makeText(CadastroCliente.this, "Salvo no banco", Toast.LENGTH_SHORT).show();
                     }
                 })
+
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
@@ -135,5 +146,39 @@ public class CadastroCliente extends AppCompatActivity {
                         Toast.makeText(CadastroCliente.this, "Erro ao salvar dados no Firestore", Toast.LENGTH_SHORT).show();
                     }
                 });
+
+        try {
+            String arquivo = nome + ".pdf";
+            String filePath = getFilesDir() + "/" + arquivo;
+            Document document = new Document();
+            PdfWriter.getInstance(document, new FileOutputStream(filePath));
+            document.open();
+
+            document.add(new Paragraph("Nome: " + nome));
+            document.add(new Paragraph("CPF: " + cpf));
+            document.add(new Paragraph("Endereço: " + endereco));
+            document.add(new Paragraph("Plano: " + plano));
+            document.add(new Paragraph("Telefone: " + telefone));
+
+            document.close();
+
+            // Carregue o PDF no Firebase Storage
+            FirebaseStorage storage = FirebaseStorage.getInstance();
+            StorageReference storageRef = storage.getReference();
+            StorageReference pdfRef = storageRef.child("/" + arquivo); // Especifique o caminho no Storage
+
+            File file = new File(filePath);
+
+            pdfRef.putFile(Uri.fromFile(file))
+                    .addOnSuccessListener(taskSnapshot -> {
+                        Toast.makeText(this, "PDF enviado para o Firebase Storage com sucesso!", Toast.LENGTH_SHORT).show();
+                    })
+                    .addOnFailureListener(e -> {
+                        Toast.makeText(this, "Erro ao enviar o PDF para o Firebase Storage: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    });
+        } catch (DocumentException | IOException e) {
+            e.printStackTrace();
+            Toast.makeText(this, "Erro ao criar o PDF", Toast.LENGTH_SHORT).show();
+        }
     }
 }
