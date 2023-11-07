@@ -37,11 +37,11 @@
                 android:id="@+id/imageView"
                 android:layout_width="104dp"
                 android:layout_height="105dp"
-                android:layout_marginStart="28dp"
+                android:layout_marginStart="16dp"
                 app:layout_constraintBottom_toTopOf="@+id/textCadastroCliente"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0"
+                app:layout_constraintVertical_bias="0.556"
                 app:srcCompat="@drawable/frimmel_transparente" />
 
             <TextView
@@ -56,10 +56,14 @@
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/textCadastroCliente"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.065"
+                app:layout_constraintHorizontal_bias="0.134"
                 app:layout_constraintStart_toEndOf="@+id/imageView"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.534" />
+                app:layout_constraintVertical_bias="0.566" />
+
+
+            <!-- Defina o texto desejado aqui -->
+
 
             <EditText
                 android:id="@+id/CadastroCPF"
@@ -67,7 +71,7 @@
                 android:layout_height="62dp"
                 android:layout_marginStart="51dp"
                 android:layout_marginEnd="52dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="20dp"
                 android:background="@drawable/background_corner"
                 android:drawableLeft="@drawable/baseline_feed_24"
                 android:drawablePadding="6dp"
@@ -92,7 +96,7 @@
                 android:layout_height="62dp"
                 android:layout_marginStart="51dp"
                 android:layout_marginEnd="52dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="20dp"
                 android:background="@drawable/background_corner"
                 android:drawableLeft="@drawable/baseline_phone_24"
                 android:drawablePadding="6dp"
@@ -117,7 +121,7 @@
                 android:layout_height="62dp"
                 android:layout_marginStart="51dp"
                 android:layout_marginEnd="52dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="20dp"
                 android:background="@drawable/background_corner"
                 android:drawableLeft="@drawable/baseline_email_24"
                 android:drawablePadding="6dp"
@@ -142,7 +146,7 @@
                 android:layout_height="62dp"
                 android:layout_marginStart="51dp"
                 android:layout_marginEnd="52dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="20dp"
                 android:background="@drawable/background_corner"
                 android:drawableLeft="@drawable/baseline_person_24"
                 android:drawablePadding="6dp"
@@ -165,7 +169,7 @@
                 android:id="@+id/textCadastroCliente"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="40dp"
                 android:fontFamily="@font/itim"
                 android:text="Cadastro do Cliente"
                 android:textColor="#5A6B59"
@@ -176,17 +180,13 @@
                 app:layout_constraintHorizontal_bias="0.496"
                 app:layout_constraintStart_toStartOf="parent" />
 
-
-            <!-- Defina o texto desejado aqui -->
-
-
             <EditText
                 android:id="@+id/CadastroCEP"
                 android:layout_width="306dp"
                 android:layout_height="62dp"
                 android:layout_marginStart="51dp"
                 android:layout_marginEnd="52dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="20dp"
                 android:background="@drawable/background_corner"
                 android:drawableLeft="@drawable/baseline_map_24"
                 android:drawablePadding="6dp"
@@ -211,7 +211,8 @@
                 android:layout_height="62dp"
                 android:layout_marginStart="51dp"
                 android:layout_marginEnd="52dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="20dp"
+
                 android:background="@drawable/background_corner"
                 android:drawableLeft="@drawable/baseline_pin_drop_24"
                 android:drawablePadding="6dp"
@@ -227,7 +228,7 @@
                 app:circularflow_radiusInDP="20sp"
                 app:layout_constraintBottom_toTopOf="@+id/CadastroPlano"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <Spinner
@@ -236,13 +237,13 @@
                 android:layout_height="62dp"
                 android:layout_marginStart="51dp"
                 android:layout_marginEnd="52dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="20dp"
                 android:background="@drawable/background_corner"
                 android:drawableLeft="@drawable/baseline_signal_wifi_4_bar_24"
                 android:drawablePadding="6dp"
                 android:ems="10"
                 android:fontFamily="@font/itim"
-                android:text="Plano"
+                android:text="@string/app_name"
                 android:textColor="#1A8414"
                 android:textColorHint="#1A8414"
                 android:textIsSelectable="false"
@@ -251,7 +252,6 @@
                 app:circularflow_radiusInDP="20sp"
                 app:layout_constraintBottom_toTopOf="@+id/CadastroSenha"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <EditText
@@ -260,7 +260,7 @@
                 android:layout_height="62dp"
                 android:layout_marginStart="51dp"
                 android:layout_marginEnd="52dp"
-                android:layout_marginBottom="100dp"
+                android:layout_marginBottom="101dp"
                 android:background="@drawable/background_corner"
                 android:drawableLeft="@drawable/baseline_lock_24"
                 android:drawablePadding="6dp"
@@ -274,7 +274,6 @@
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <Button

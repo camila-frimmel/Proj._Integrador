@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:fillViewport="true">
+
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradiente_color"
@@ -80,11 +86,9 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintLayout9"
-                android:layout_width="407dp"
-                android:layout_height="482dp"
+                android:layout_width="409dp"
+                android:layout_height="522dp"
                 android:layout_marginStart="1dp"
-                android:layout_marginEnd="1dp"
-                android:layout_marginBottom="37dp"
                 android:background="@drawable/background_corner"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -94,9 +98,9 @@
                     android:id="@+id/textNome"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="33dp"
-                    android:layout_marginEnd="329dp"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginEnd="328dp"
                     android:fontFamily="@font/itim"
                     android:text="Nome:"
                     android:textColor="#1A8414"
@@ -112,7 +116,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:layout_marginEnd="294dp"
+                    android:layout_marginEnd="296dp"
                     android:fontFamily="@font/itim"
                     android:text="Endereço:"
                     android:textColor="#1A8414"
@@ -126,10 +130,25 @@
                     android:id="@+id/textHorario"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginEnd="312dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="313dp"
                     android:fontFamily="@font/itim"
                     android:text="Horário:"
+                    android:textColor="#1A8414"
+                    android:textSize="23sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/textData"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/textData"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="355dp"
+                    android:fontFamily="@font/itim"
+                    android:text="Dia:"
                     android:textColor="#1A8414"
                     android:textSize="23sp"
                     android:textStyle="bold"
@@ -141,8 +160,8 @@
                     android:id="@+id/textFhone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="301dp"
+                    android:layout_marginStart="17dp"
+                    android:layout_marginEnd="302dp"
                     android:fontFamily="@font/itim"
                     android:text="Telefone:"
                     android:textColor="#1A8414"
@@ -156,9 +175,9 @@
                     android:id="@+id/textMotivo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
+                    android:layout_marginStart="18dp"
                     android:layout_marginEnd="162dp"
-                    android:layout_marginBottom="12dp"
+                    android:layout_marginBottom="8dp"
                     android:fontFamily="@font/itim"
                     android:text="Motivo da Manutenção:"
                     android:textColor="#1A8414"
@@ -166,7 +185,7 @@
                     android:textStyle="bold"
                     app:layout_constraintBottom_toTopOf="@+id/constraintLayout10"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -190,3 +209,4 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>
+</ScrollView>
