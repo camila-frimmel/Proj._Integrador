@@ -6,10 +6,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatSpinner;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -30,7 +32,7 @@ public class CadastroCliente extends AppCompatActivity {
     private EditText CadastroTelefone;
     private EditText CadastroCEP;
     private EditText CadastroEndereço;
-    private EditText CadastroPlano;
+    private Spinner CadastroPlano;
     private EditText CadastroSenha;
     private Button Salvar;
     private FirebaseAuth mAuth;
@@ -51,7 +53,7 @@ public class CadastroCliente extends AppCompatActivity {
         CadastroTelefone = findViewById(R.id.CadastroTelefone);
         CadastroCEP = findViewById(R.id.CadastroCEP);
         CadastroEndereço = findViewById(R.id.CadastroEndereço);
-        CadastroPlano = findViewById(R.id.CadastroPlano);
+        CadastroPlano = (Spinner) findViewById(R.id.CadastroPlano);
         CadastroSenha = findViewById(R.id.CadastroSenha);
 
         Salvar.setOnClickListener(new View.OnClickListener() {
@@ -63,7 +65,7 @@ public class CadastroCliente extends AppCompatActivity {
                 String telefone = CadastroTelefone.getText().toString();
                 String cep = CadastroCEP.getText().toString();
                 String endereco = CadastroEndereço.getText().toString();
-                String plano = CadastroPlano.getText().toString();
+                String plano = CadastroPlano.getSelectedItem().toString();
                 String senha = CadastroSenha.getText().toString();
 
                 if (validaCampos(nome, cpf, email, telefone, cep, endereco, plano, senha)) {
