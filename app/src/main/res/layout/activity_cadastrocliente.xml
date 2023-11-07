@@ -25,10 +25,9 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="409dp"
-            android:layout_height="match_parent"
+            android:layout_height="1000dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0">
@@ -66,7 +65,9 @@
                 android:id="@+id/CadastroCPF"
                 android:layout_width="306dp"
                 android:layout_height="62dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginStart="51dp"
+                android:layout_marginEnd="52dp"
+                android:layout_marginBottom="10dp"
                 android:background="@drawable/background_corner"
                 android:drawableLeft="@drawable/baseline_feed_24"
                 android:drawablePadding="6dp"
@@ -82,14 +83,16 @@
                 app:circularflow_radiusInDP="20sp"
                 app:layout_constraintBottom_toTopOf="@+id/CadastroEmail"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.504"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <EditText
                 android:id="@+id/CadastroTelefone"
                 android:layout_width="306dp"
                 android:layout_height="62dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginStart="51dp"
+                android:layout_marginEnd="52dp"
+                android:layout_marginBottom="10dp"
                 android:background="@drawable/background_corner"
                 android:drawableLeft="@drawable/baseline_phone_24"
                 android:drawablePadding="6dp"
@@ -105,14 +108,16 @@
                 app:circularflow_radiusInDP="20sp"
                 app:layout_constraintBottom_toTopOf="@+id/CadastroCEP"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.504"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <EditText
                 android:id="@+id/CadastroEmail"
                 android:layout_width="306dp"
                 android:layout_height="62dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginStart="51dp"
+                android:layout_marginEnd="52dp"
+                android:layout_marginBottom="10dp"
                 android:background="@drawable/background_corner"
                 android:drawableLeft="@drawable/baseline_email_24"
                 android:drawablePadding="6dp"
@@ -128,14 +133,16 @@
                 app:circularflow_radiusInDP="20sp"
                 app:layout_constraintBottom_toTopOf="@+id/CadastroTelefone"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.504"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <EditText
                 android:id="@+id/CadastroNome"
                 android:layout_width="306dp"
                 android:layout_height="62dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginStart="51dp"
+                android:layout_marginEnd="52dp"
+                android:layout_marginBottom="10dp"
                 android:background="@drawable/background_corner"
                 android:drawableLeft="@drawable/baseline_person_24"
                 android:drawablePadding="6dp"
@@ -151,7 +158,7 @@
                 app:circularflow_radiusInDP="20sp"
                 app:layout_constraintBottom_toTopOf="@+id/CadastroCPF"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.504"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
@@ -170,11 +177,16 @@
                 app:layout_constraintStart_toStartOf="parent" />
 
 
+            <!-- Defina o texto desejado aqui -->
+
+
             <EditText
                 android:id="@+id/CadastroCEP"
                 android:layout_width="306dp"
                 android:layout_height="62dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginStart="51dp"
+                android:layout_marginEnd="52dp"
+                android:layout_marginBottom="10dp"
                 android:background="@drawable/background_corner"
                 android:drawableLeft="@drawable/baseline_map_24"
                 android:drawablePadding="6dp"
@@ -190,14 +202,16 @@
                 app:circularflow_radiusInDP="20sp"
                 app:layout_constraintBottom_toTopOf="@+id/CadastroEndereço"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.495"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <EditText
                 android:id="@+id/CadastroEndereço"
                 android:layout_width="306dp"
                 android:layout_height="62dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginStart="51dp"
+                android:layout_marginEnd="52dp"
+                android:layout_marginBottom="10dp"
                 android:background="@drawable/background_corner"
                 android:drawableLeft="@drawable/baseline_pin_drop_24"
                 android:drawablePadding="6dp"
@@ -213,21 +227,22 @@
                 app:circularflow_radiusInDP="20sp"
                 app:layout_constraintBottom_toTopOf="@+id/CadastroPlano"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.495"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent" />
 
-            <EditText
+            <Spinner
                 android:id="@+id/CadastroPlano"
                 android:layout_width="306dp"
                 android:layout_height="62dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginStart="51dp"
+                android:layout_marginEnd="52dp"
+                android:layout_marginBottom="10dp"
                 android:background="@drawable/background_corner"
                 android:drawableLeft="@drawable/baseline_signal_wifi_4_bar_24"
                 android:drawablePadding="6dp"
                 android:ems="10"
                 android:fontFamily="@font/itim"
-                android:hint="Plano"
-                android:inputType="text"
+                android:text="Plano"
                 android:textColor="#1A8414"
                 android:textColorHint="#1A8414"
                 android:textIsSelectable="false"
@@ -236,14 +251,16 @@
                 app:circularflow_radiusInDP="20sp"
                 app:layout_constraintBottom_toTopOf="@+id/CadastroSenha"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.495"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <EditText
                 android:id="@+id/CadastroSenha"
                 android:layout_width="306dp"
                 android:layout_height="62dp"
-                android:layout_marginBottom="40dp"
+                android:layout_marginStart="51dp"
+                android:layout_marginEnd="52dp"
+                android:layout_marginBottom="100dp"
                 android:background="@drawable/background_corner"
                 android:drawableLeft="@drawable/baseline_lock_24"
                 android:drawablePadding="6dp"
@@ -255,16 +272,38 @@
                 android:textColorHint="#1A8414"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/ConfirmarCadastro"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.495"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/ConfirmarCadastro"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_marginStart="51dp"
+                android:layout_marginTop="924dp"
+                android:layout_marginBottom="16dp"
+                android:backgroundTint="#B8D4B6"
+                android:fontFamily="@font/itim"
+                android:text="Confirmar"
+                android:textColor="#1A8414"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:cornerRadius="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/CancelarCadastro"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <Button
                 android:id="@+id/CancelarCadastro"
                 android:layout_width="130dp"
                 android:layout_height="60dp"
-                android:layout_marginBottom="28dp"
+                android:layout_marginTop="927dp"
+                android:layout_marginEnd="52dp"
+                android:layout_marginBottom="13dp"
                 android:backgroundTint="#B8D4B6"
                 android:fontFamily="@font/itim"
                 android:text="Cancelar"
@@ -274,28 +313,11 @@
                 app:cornerRadius="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.505"
-                app:layout_constraintStart_toEndOf="@+id/ConfirmarCadastro" />
-
-            <Button
-                android:id="@+id/ConfirmarCadastro"
-                android:layout_width="wrap_content"
-                android:layout_height="60dp"
-                android:layout_marginStart="52dp"
-                android:layout_marginBottom="28dp"
-                android:backgroundTint="#B8D4B6"
-                android:fontFamily="@font/itim"
-                android:text="Confirmar"
-                android:textColor="#1A8414"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:cornerRadius="20dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </LinearLayout>
+</LinearLayout>
 </ScrollView>
