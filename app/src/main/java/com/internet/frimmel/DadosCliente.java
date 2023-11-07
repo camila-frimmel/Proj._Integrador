@@ -118,7 +118,7 @@ public class DadosCliente extends AppCompatActivity {
             // Carregue o PDF no Firebase Storage
             FirebaseStorage storage = FirebaseStorage.getInstance();
             StorageReference storageRef = storage.getReference();
-            StorageReference pdfRef = storageRef.child("gs://appfrimmel.appspot.com/cliente.pdf"); // Especifique o caminho no Storage
+            StorageReference pdfRef = storageRef.child("/cliente.pdf"); // Especifique o caminho no Storage
 
             File file = new File(filePath);
 
