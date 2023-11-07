@@ -99,40 +99,5 @@ public class DadosCliente extends AppCompatActivity {
             // Não há usuário autenticado, faça o tratamento apropriado
             Toast.makeText(this, "Nenhum usuário autenticado", Toast.LENGTH_SHORT).show();
         }
-
-
-        try {
-            String filePath = getFilesDir() + "/cliente.pdf";
-            Document document = new Document();
-            PdfWriter.getInstance(document, new FileOutputStream(filePath));
-            document.open();
-
-            document.add(new Paragraph("Nome: " + textNome.getText()));
-            document.add(new Paragraph("CPF: " + textCPF.getText()));
-            document.add(new Paragraph("Endereço: " + textEndereço.getText()));
-            document.add(new Paragraph("Plano: " + textPlano.getText()));
-            document.add(new Paragraph("Telefone: " + textNumero.getText()));
-
-            document.close();
-
-            // Carregue o PDF no Firebase Storage
-            FirebaseStorage storage = FirebaseStorage.getInstance();
-            StorageReference storageRef = storage.getReference();
-            StorageReference pdfRef = storageRef.child("/cliente.pdf"); // Especifique o caminho no Storage
-
-            File file = new File(filePath);
-
-            pdfRef.putFile(Uri.fromFile(file))
-                    .addOnSuccessListener(taskSnapshot -> {
-                        Toast.makeText(this, "PDF enviado para o Firebase Storage com sucesso!", Toast.LENGTH_SHORT).show();
-                    })
-                    .addOnFailureListener(e -> {
-                        Toast.makeText(this, "Erro ao enviar o PDF para o Firebase Storage: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                    });
-        } catch (DocumentException | IOException e) {
-            e.printStackTrace();
-            Toast.makeText(this, "Erro ao criar o PDF", Toast.LENGTH_SHORT).show();
-        }
-
     }
 }
