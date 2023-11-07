@@ -31,10 +31,10 @@ public class Boleto extends AppCompatActivity {
     private void exibirPDFDoFirebase() {
         FirebaseStorage storage = FirebaseStorage.getInstance();
         StorageReference storageRef = storage.getReference();
-        StorageReference pdfRef = storageRef.child("gs://appfrimmel.appspot.com/"); // Especifique o caminho do arquivo no Storage
+        StorageReference pdfRef = storageRef.child("/cliente.pdf"); // Especifique o caminho do arquivo no Storage
 
         // Especifique o caminho local onde você deseja salvar o PDF
-        File localFile = new File(getExternalFilesDir(null), "cliente.pdf");
+        File localFile = new File(getExternalFilesDir(null), "/cliente.pdf");
 
         pdfRef.getFile(localFile)
                 .addOnSuccessListener(taskSnapshot -> {
