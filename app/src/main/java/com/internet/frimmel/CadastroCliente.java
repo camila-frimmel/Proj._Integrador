@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -18,8 +19,11 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.itextpdf.text.Document;
@@ -30,7 +34,9 @@ import com.itextpdf.text.pdf.PdfWriter;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class CadastroCliente extends AppCompatActivity {
@@ -65,6 +71,35 @@ public class CadastroCliente extends AppCompatActivity {
         CadastroEndereço = findViewById(R.id.CadastroEndereço);
         CadastroPlano = (Spinner) findViewById(R.id.CadastroPlano);
         CadastroSenha = findViewById(R.id.CadastroSenha);
+
+        CollectionReference opPlanos = db.collection("planos");
+        List<String> lstaplanos = new ArrayList<>();
+
+        opPlanos.get()
+                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    @Override
+                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                        for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
+                            String Plano1 = document.getString("Plano 1");
+                            lstaplanos.add(Plano1);
+                            String Plano2 = document.getString("Plano 2");
+                            lstaplanos.add(Plano2);
+                            String Plano3 = document.getString("Plano 3");
+                            lstaplanos.add(Plano3);
+                        }
+
+                        // Crie um ArrayAdapter com as opções recuperadas e configure o Spinner
+                        ArrayAdapter<String> planoAdapter = new ArrayAdapter<>(CadastroCliente.this, android.R.layout.simple_spinner_item, lstaplanos);
+                        planoAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                        CadastroPlano.setAdapter(planoAdapter);
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.e("Firestore", "Erro ao recuperar opções de plano do Firestore", e);
+                    }
+                });
 
         Salvar.setOnClickListener(new View.OnClickListener() {
             @Override
