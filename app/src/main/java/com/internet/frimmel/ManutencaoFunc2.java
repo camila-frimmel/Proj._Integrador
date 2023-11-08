@@ -17,8 +17,11 @@ public class ManutencaoFunc2 extends AppCompatActivity {
 
     private FirebaseFirestore db;
     private TextView textHorario;
-    private TextView DataTextView;
+    private TextView textData;
     private TextView textMotivo;
+    private TextView textNome;
+    private TextView textEndereco;
+    private TextView textFhone;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,11 +31,17 @@ public class ManutencaoFunc2 extends AppCompatActivity {
 
         // Referências para os elementos de exibição em seu layout
         textHorario = findViewById(R.id.textHorario);
-        //DataTextView = findViewById(R.id.dataTextView);
+        textData = findViewById(R.id.textData);
         textMotivo = findViewById(R.id.textMotivo);
+        textNome = findViewById(R.id.textNome);
+        textEndereco = findViewById(R.id.textEndereco);
+        textFhone = findViewById(R.id.textFhone);
 
-        // Realizar a leitura dos dados do Firestore
-        db.collection("agenda")
+        readDataFromCollection("agenda");
+        readDataFromAnotherCollection("cliente");
+    }
+        private void readDataFromCollection (String agenda) {
+        db.collection(agenda)
                 .get()
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override
@@ -46,8 +55,36 @@ public class ManutencaoFunc2 extends AppCompatActivity {
 
                             // Exibir os dados nos TextViews
                             textHorario.setText("Horário: " + horario);
-                            //dataTextView.setText("Data: " + data);
+                            textData.setText("Data: " + data);
                             textMotivo.setText("Observação: " + obs);
+                        }
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(ManutencaoFunc2.this, "ERRO!", Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
+    private void readDataFromAnotherCollection (String cliente) {
+        db.collection(cliente)
+                .get()
+                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    @Override
+                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                        // Assumindo que você deseja exibir apenas o primeiro documento encontrado
+                        if (!queryDocumentSnapshots.isEmpty()) {
+                            DocumentSnapshot document = queryDocumentSnapshots.getDocuments().get(0);
+                            String nome = document.getString("Nome");
+                            String endereco = document.getString("Endereço");
+                            String telefone = document.getString("Telefone");
+
+                            // Exibir os dados nos TextViews
+                            textNome.setText("Nome: " + nome);
+                            textEndereco.setText("Endereço: " + endereco);
+                            textFhone.setText("Telefone: " + telefone);
                         }
                     }
                 })

@@ -1,11 +1,11 @@
 package com.internet.frimmel;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -13,11 +13,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.FirebaseApp;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -29,6 +28,7 @@ public class ManutençãoCliente extends AppCompatActivity {
     private EditText Horario;
     private EditText Data;
     private EditText Obs;
+    private TextView ViewEndereço;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,12 +36,16 @@ public class ManutençãoCliente extends AppCompatActivity {
         Confirmar = findViewById(R.id.ConfirmarAgenda);
         Button Cancelar = findViewById(R.id.CancelarAgenda);
 
-        FirebaseApp.initializeApp(this);
+        //FirebaseApp.initializeApp(this);
         db = FirebaseFirestore.getInstance();
 
         Horario = findViewById(R.id.editHorario);
         Data = findViewById(R.id.editDia);
         Obs = findViewById(R.id.editTextTextMultiLine);
+        ViewEndereço = findViewById(R.id.ViewEndereço);
+
+        readDataFromCollection("cliente");
+
 
         Confirmar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,6 +67,7 @@ public class ManutençãoCliente extends AppCompatActivity {
                 popupDialog.show(getSupportFragmentManager(), "popup_dialog");
             }
         });
+
     }
 
     private boolean validaCampos(String horario, String data, String obs) {
@@ -97,4 +102,25 @@ public class ManutençãoCliente extends AppCompatActivity {
                 });
     }
 
-}
+    private void readDataFromCollection (String cliente) {
+        db.collection(cliente)
+                .get()
+                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    @Override
+                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                        if (!queryDocumentSnapshots.isEmpty()) {
+                            DocumentSnapshot document = queryDocumentSnapshots.getDocuments().get(0);
+                            String endereco = document.getString("Endereço");
+
+                            ViewEndereço.setText("Endereço" + endereco);
+                        }
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(ManutençãoCliente.this, "ERRO!", Toast.LENGTH_SHORT).show();
+                    }
+                });
+        }
+    }
