@@ -73,7 +73,7 @@ public class CadastroCliente extends AppCompatActivity {
         CadastroPlano = (Spinner) findViewById(R.id.CadastroPlano);
         CadastroSenha = findViewById(R.id.CadastroSenha);
 
-        CollectionReference opPlanos = db.collection("planos");
+        /*CollectionReference opPlanos = db.collection("planos");
         List<String> lstaplanos = new ArrayList<>();
 
         opPlanos.get()
@@ -100,7 +100,7 @@ public class CadastroCliente extends AppCompatActivity {
                     public void onFailure(@NonNull Exception e) {
                         Log.e("Firestore", "Erro ao recuperar opções de plano do Firestore", e);
                     }
-                });
+                });*/
 
         Salvar.setOnClickListener(new View.OnClickListener() {
             @Override
