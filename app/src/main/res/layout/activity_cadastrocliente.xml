@@ -292,7 +292,6 @@
 
             <Spinner
                 android:id="@+id/CadastroPlano"
-                android:style="@style/SpiStyle"
                 android:layout_width="306dp"
                 android:layout_height="62dp"
                 android:layout_marginStart="1dp"
