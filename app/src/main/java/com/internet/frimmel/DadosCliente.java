@@ -72,17 +72,17 @@ public class DadosCliente extends AppCompatActivity {
                                     documentSnapshot -> {
                                         if (documentSnapshot.exists()) {
                                             String nomeRazaoSocial = documentSnapshot.getString("Nome");
-                                            textNome.setText(nomeRazaoSocial);
+                                            textNome.setText("Nome: " + nomeRazaoSocial);
                                             String cpf = documentSnapshot.getString("CPF");
-                                            textCPF.setText(cpf);
+                                            textCPF.setText("CPF: " + cpf);
                                             String endereco = documentSnapshot.getString("Endereço");
-                                            textEndereço.setText(endereco);
+                                            textEndereço.setText("Endereço: " + endereco);
                                             String telefone = documentSnapshot.getString("Telefone");
-                                            textNumero.setText(telefone);
+                                            textNumero.setText("Telefone: " + telefone);
                                             String plano = documentSnapshot.getString("Plano");
-                                            textPlano.setText(plano);
+                                            textPlano.setText("Plano: " + plano);
                                             String mensal = documentSnapshot.getString("Mensalidade");
-                                            textMensal.setText(mensal);
+                                            textMensal.setText("Mensalidade: " + mensal);
 
 
                                         } else {

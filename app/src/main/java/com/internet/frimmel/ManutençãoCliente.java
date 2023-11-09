@@ -112,7 +112,7 @@ public class ManutençãoCliente extends AppCompatActivity {
                             DocumentSnapshot document = queryDocumentSnapshots.getDocuments().get(0);
                             String endereco = document.getString("Endereço");
 
-                            ViewEndereço.setText("Endereço" + endereco);
+                            ViewEndereço.setText("" + endereco);
                         }
                     }
                 })
