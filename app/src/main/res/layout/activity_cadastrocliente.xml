@@ -212,7 +212,6 @@
                 android:layout_marginStart="51dp"
                 android:layout_marginEnd="52dp"
                 android:layout_marginBottom="20dp"
-
                 android:background="@drawable/background_corner"
                 android:drawableLeft="@drawable/baseline_pin_drop_24"
                 android:drawablePadding="6dp"
@@ -228,31 +227,8 @@
                 app:circularflow_radiusInDP="20sp"
                 app:layout_constraintBottom_toTopOf="@+id/CadastroPlano"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent" />
 
-            <Spinner
-                android:id="@+id/CadastroPlano"
-                android:layout_width="306dp"
-                android:layout_height="62dp"
-                android:layout_marginStart="51dp"
-                android:layout_marginEnd="52dp"
-                android:layout_marginBottom="20dp"
-                android:background="@drawable/background_corner"
-                android:drawableLeft="@drawable/baseline_signal_wifi_4_bar_24"
-                android:drawablePadding="6dp"
-                android:ems="10"
-                android:fontFamily="@font/itim"
-                android:text="@string/app_name"
-                android:textColor="#1A8414"
-                android:textColorHint="#1A8414"
-                android:textIsSelectable="false"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:circularflow_radiusInDP="20sp"
-                app:layout_constraintBottom_toTopOf="@+id/CadastroSenha"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
 
             <EditText
                 android:id="@+id/CadastroSenha"
@@ -300,7 +276,7 @@
                 android:id="@+id/CancelarCadastro"
                 android:layout_width="130dp"
                 android:layout_height="60dp"
-                android:layout_marginTop="927dp"
+                android:layout_marginTop="924dp"
                 android:layout_marginEnd="52dp"
                 android:layout_marginBottom="13dp"
                 android:backgroundTint="#B8D4B6"
@@ -314,9 +290,23 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <Spinner
+                android:id="@+id/CadastroPlano"
+                android:style="@style/SpiStyle"
+                android:layout_width="306dp"
+                android:layout_height="62dp"
+                android:layout_marginStart="1dp"
+                android:layout_marginEnd="1dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/background_corner"
+                android:entries="@array/SpiPlano"
+                android:paddingHorizontal="6dp"
+                app:layout_constraintBottom_toTopOf="@+id/CadastroSenha"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </LinearLayout>
 </ScrollView>

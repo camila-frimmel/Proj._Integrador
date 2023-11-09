@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="SpiStyle" parent="Widget.AppCompat.Spinner">
+        <item name="android:textColor">#1A8414</item> <!-- Define a cor do texto -->
+        <item name="android:fontFamily">@font/itim</item>
+    </style>
+
+</resources>

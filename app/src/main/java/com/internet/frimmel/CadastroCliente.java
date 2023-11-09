@@ -1,5 +1,6 @@
 package com.internet.frimmel;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -89,7 +90,7 @@ public class CadastroCliente extends AppCompatActivity {
                         }
 
                         // Crie um ArrayAdapter com as opções recuperadas e configure o Spinner
-                        ArrayAdapter<String> planoAdapter = new ArrayAdapter<>(CadastroCliente.this, android.R.layout.simple_spinner_item, lstaplanos);
+                        @SuppressLint("ResourceType") ArrayAdapter<String> planoAdapter = new ArrayAdapter<>(getApplicationContext(),R.array.SpiPlano, android.R.layout.simple_spinner_item, lstaplanos);
                         planoAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                         CadastroPlano.setAdapter(planoAdapter);
                     }

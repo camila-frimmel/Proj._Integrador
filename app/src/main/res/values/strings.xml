@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Frimmel</string>
+
+    <string-array name="SpiPlano">
+        <item>Planos</item>
+        <item>Plano 1</item>
+        <item>Plano 2</item>
+        <item>Plano 3</item>
+    </string-array>
 </resources>
