@@ -6,6 +6,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -50,6 +52,8 @@ public class CadastroCliente extends AppCompatActivity {
     private EditText CadastroCEP;
     private EditText CadastroEndereço;
     private Spinner CadastroPlano;
+    private Spinner CadastroMegas;
+    private Spinner CadastroMensal;
     private EditText CadastroSenha;
     private Button Salvar;
     private FirebaseAuth mAuth;
@@ -70,37 +74,12 @@ public class CadastroCliente extends AppCompatActivity {
         CadastroTelefone = findViewById(R.id.CadastroTelefone);
         CadastroCEP = findViewById(R.id.CadastroCEP);
         CadastroEndereço = findViewById(R.id.CadastroEndereço);
-        CadastroPlano = (Spinner) findViewById(R.id.CadastroPlano);
+        CadastroPlano =  findViewById(R.id.CadastroPlano);
+        CadastroMegas = findViewById(R.id.CadastroMegas);
+        CadastroMensal = findViewById(R.id.CadastroMensal);
         CadastroSenha = findViewById(R.id.CadastroSenha);
 
-        /*CollectionReference opPlanos = db.collection("planos");
-        List<String> lstaplanos = new ArrayList<>();
 
-        opPlanos.get()
-                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-                    @Override
-                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                        for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
-                            String Plano1 = document.getString("Plano 1");
-                            lstaplanos.add(Plano1);
-                            String Plano2 = document.getString("Plano 2");
-                            lstaplanos.add(Plano2);
-                            String Plano3 = document.getString("Plano 3");
-                            lstaplanos.add(Plano3);
-                        }
-
-                        // Crie um ArrayAdapter com as opções recuperadas e configure o Spinner
-                        @SuppressLint("ResourceType") ArrayAdapter<String> planoAdapter = new ArrayAdapter<>(getApplicationContext(),R.array.SpiPlano, android.R.layout.simple_spinner_item, lstaplanos);
-                        planoAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                        CadastroPlano.setAdapter(planoAdapter);
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.e("Firestore", "Erro ao recuperar opções de plano do Firestore", e);
-                    }
-                });*/
 
         Salvar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -128,6 +107,86 @@ public class CadastroCliente extends AppCompatActivity {
                 popupDialog.show(getSupportFragmentManager(), "popup_dialog");
             }
         });
+        // Configurar o Spinner de Planos
+        configurarSpinnerPlanos();
+    }
+
+    private void configurarSpinnerPlanos() {
+        List<String> planos = new ArrayList<>();
+        planos.add("Plano 1");
+        planos.add("Plano 2");
+        planos.add("Plano 3");
+
+        ArrayAdapter<String> planosAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, planos);
+        planosAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        CadastroPlano.setAdapter(planosAdapter);
+
+        // Configurar o Spinner de MM (valores)
+        List<String> megasPlano1 = new ArrayList<>();
+        megasPlano1.add("Megas: 50mg");
+
+        List<String> megasPlano2 = new ArrayList<>();
+        megasPlano2.add("Megas: 25mg");
+
+        List<String> megasPlano3 = new ArrayList<>();
+        megasPlano3.add("Megas: 15mg");
+
+        ArrayAdapter<String> megasAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, new ArrayList<>());
+        megasAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        CadastroMegas.setAdapter(megasAdapter);
+
+        List<String> mensalPlano1 = new ArrayList<>();
+        mensalPlano1.add("Mensalidade: R$100");
+
+        List<String> mensalPlano2 = new ArrayList<>();
+        mensalPlano2.add("Mensalidade: R$80");
+
+        List<String> mensalPlano3 = new ArrayList<>();
+        mensalPlano3.add("Mensalidade: R$50");
+
+        ArrayAdapter<String> mensalAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, new ArrayList<>());
+        mensalAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        CadastroMensal.setAdapter(mensalAdapter);
+
+        // Defina um ouvinte para o Spinner de planos
+        CadastroPlano.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                // Atualize o Spinner de valores com os valores correspondentes ao plano selecionado
+                String planoSelecionado = planos.get(position);
+                if ("Plano 1".equals(planoSelecionado)) {
+                    atualizarMegas(megasPlano1);
+                    atualizarMensal(mensalPlano1);
+                } else if ("Plano 2".equals(planoSelecionado)) {
+                    atualizarMegas(megasPlano2);
+                    atualizarMensal(mensalPlano2);
+                } else if ("Plano 3".equals(planoSelecionado)) {
+                    atualizarMegas(megasPlano3);
+                    atualizarMensal(mensalPlano3);
+                }
+                else {
+
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // Implemente conforme necessário
+            }
+        });
+    }
+
+    private void atualizarMegas(List<String> valores) {
+        ArrayAdapter<String> valoresAdapter = (ArrayAdapter<String>) CadastroMegas.getAdapter();
+        valoresAdapter.clear();
+        valoresAdapter.addAll(valores);
+        valoresAdapter.notifyDataSetChanged();
+    }
+    private void atualizarMensal(List<String> valores) {
+        ArrayAdapter<String> mensalAdapter = (ArrayAdapter<String>) CadastroMensal.getAdapter();
+        mensalAdapter.clear();
+        mensalAdapter.addAll(valores);
+        mensalAdapter.notifyDataSetChanged();
     }
 
     private boolean validaCampos(String nome, String cpf, String email, String telefone, String cep, String endereco, String plano, String senha) {
