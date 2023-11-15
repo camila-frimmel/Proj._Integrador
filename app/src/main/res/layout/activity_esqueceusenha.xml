@@ -80,7 +80,7 @@
                 android:layout_height="71dp"
                 android:layout_marginStart="101dp"
                 android:layout_marginEnd="105dp"
-                android:layout_marginBottom="124dp"
+                android:layout_marginBottom="128dp"
                 android:backgroundTint="#B8D4B6"
                 android:fontFamily="@font/itim"
                 android:text="Entrar"
@@ -90,7 +90,7 @@
                 app:cornerRadius="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <EditText
@@ -99,7 +99,7 @@
                 android:layout_height="84dp"
                 android:layout_marginStart="53dp"
                 android:layout_marginEnd="54dp"
-                android:layout_marginBottom="76dp"
+                android:layout_marginBottom="80dp"
                 android:background="@drawable/background_corner"
                 android:drawableLeft="@drawable/baseline_email_24"
                 android:drawablePadding="6dp"
