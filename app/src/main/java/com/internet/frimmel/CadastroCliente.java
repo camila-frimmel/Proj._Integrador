@@ -119,7 +119,7 @@ public class CadastroCliente extends AppCompatActivity {
         planos.add("Plano 2");
         planos.add("Plano 3");
 
-        ArrayAdapter<String> planosAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, planos);
+        SpinnerAdapter planosAdapter = new SpinnerAdapter(this, android.R.layout.simple_spinner_item, planos);
         planosAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         CadastroPlano.setAdapter(planosAdapter);
 
@@ -133,7 +133,7 @@ public class CadastroCliente extends AppCompatActivity {
         List<String> megasPlano3 = new ArrayList<>();
         megasPlano3.add("Megas: 15mg");
 
-        ArrayAdapter<String> megasAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, new ArrayList<>());
+        SpinnerAdapter megasAdapter = new SpinnerAdapter(this, android.R.layout.simple_spinner_item, new ArrayList<>());
         megasAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         CadastroMegas.setAdapter(megasAdapter);
 
@@ -146,7 +146,7 @@ public class CadastroCliente extends AppCompatActivity {
         List<String> mensalPlano3 = new ArrayList<>();
         mensalPlano3.add("Mensalidade: R$50");
 
-        ArrayAdapter<String> mensalAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, new ArrayList<>());
+        SpinnerAdapter mensalAdapter = new SpinnerAdapter(this, android.R.layout.simple_spinner_item, new ArrayList<>());
         mensalAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         CadastroMensal.setAdapter(mensalAdapter);
 

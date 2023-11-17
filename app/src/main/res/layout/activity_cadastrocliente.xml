@@ -191,7 +191,6 @@
                 android:drawableLeft="@drawable/baseline_map_24"
                 android:drawablePadding="6dp"
                 android:ems="10"
-                android:fontFamily="@font/itim"
                 android:hint="CEP"
                 android:inputType="text"
                 android:textColor="#1A8414"
@@ -300,6 +299,7 @@
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/background_corner"
                 android:paddingHorizontal="6dp"
+                android:fontFamily="@font/itim"
                 app:layout_constraintBottom_toTopOf="@+id/CadastroMegas"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -314,6 +314,7 @@
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/background_corner"
                 android:paddingHorizontal="6dp"
+                android:fontFamily="@font/itim"
                 app:layout_constraintBottom_toTopOf="@+id/CadastroMensal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -327,6 +328,7 @@
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/background_corner"
                 android:paddingHorizontal="6dp"
+                android:fontFamily="@font/itim"
                 app:layout_constraintBottom_toTopOf="@+id/CadastroSenha"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
