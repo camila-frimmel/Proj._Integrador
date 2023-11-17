@@ -234,6 +234,9 @@ public class CadastroCliente extends AppCompatActivity {
                     public void onSuccess(DocumentReference documentReference) {
                         String novoDocumentoId = documentReference.getId();
                         Toast.makeText(CadastroCliente.this, "Salvo no banco", Toast.LENGTH_SHORT).show();
+
+                        Intent intent = new Intent(CadastroCliente.this, MenuFuncionario.class);
+                        startActivity(intent);
                     }
                 })
 
