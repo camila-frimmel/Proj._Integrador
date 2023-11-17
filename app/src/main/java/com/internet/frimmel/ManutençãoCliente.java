@@ -80,9 +80,9 @@ public class ManutençãoCliente extends AppCompatActivity {
 
     private void salvarDadosNoFirestore(String horario, String data, String obs) {
         Map<String, Object> dados = new HashMap<>();
-        dados.put("horario", horario);
-        dados.put("data", data);
-        dados.put("obs", obs);
+        dados.put("Horário", horario);
+        dados.put("Data", data);
+        dados.put("Obs", obs);
 
         db.collection("agenda")
                 .add(dados)
