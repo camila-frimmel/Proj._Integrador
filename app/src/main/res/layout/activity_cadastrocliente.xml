@@ -25,7 +25,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="409dp"
-            android:layout_height="1000dp"
+            android:layout_height="1300dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -236,7 +236,7 @@
                 android:layout_height="62dp"
                 android:layout_marginStart="51dp"
                 android:layout_marginEnd="52dp"
-                android:layout_marginBottom="101dp"
+                android:layout_marginBottom="223dp"
                 android:background="@drawable/background_corner"
                 android:drawableLeft="@drawable/baseline_lock_24"
                 android:drawablePadding="6dp"
@@ -257,8 +257,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="60dp"
                 android:layout_marginStart="51dp"
-                android:layout_marginTop="924dp"
-                android:layout_marginBottom="16dp"
+                android:layout_marginTop="1109dp"
+                android:layout_marginBottom="131dp"
                 android:backgroundTint="#B8D4B6"
                 android:fontFamily="@font/itim"
                 android:text="Confirmar"
@@ -270,15 +270,16 @@
                 app:layout_constraintEnd_toStartOf="@+id/CancelarCadastro"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
 
             <Button
                 android:id="@+id/CancelarCadastro"
                 android:layout_width="130dp"
                 android:layout_height="60dp"
-                android:layout_marginTop="924dp"
+                android:layout_marginTop="1109dp"
                 android:layout_marginEnd="52dp"
-                android:layout_marginBottom="13dp"
+                android:layout_marginBottom="131dp"
                 android:backgroundTint="#B8D4B6"
                 android:fontFamily="@font/itim"
                 android:text="Cancelar"
@@ -294,16 +295,42 @@
                 android:id="@+id/CadastroPlano"
                 android:layout_width="306dp"
                 android:layout_height="62dp"
-                android:layout_marginStart="1dp"
-                android:layout_marginEnd="1dp"
+                android:layout_marginStart="52dp"
+                android:layout_marginEnd="51dp"
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/background_corner"
-                android:entries="@array/SpiPlano"
+                android:paddingHorizontal="6dp"
+                app:layout_constraintBottom_toTopOf="@+id/CadastroMegas"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Spinner
+                android:id="@+id/CadastroMegas"
+                android:layout_width="306dp"
+                android:layout_height="62dp"
+                android:layout_marginStart="51dp"
+                android:layout_marginEnd="52dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/background_corner"
+                android:paddingHorizontal="6dp"
+                app:layout_constraintBottom_toTopOf="@+id/CadastroMensal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Spinner
+                android:id="@+id/CadastroMensal"
+                android:layout_width="306dp"
+                android:layout_height="62dp"
+                android:layout_marginStart="51dp"
+                android:layout_marginEnd="52dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/background_corner"
                 android:paddingHorizontal="6dp"
                 app:layout_constraintBottom_toTopOf="@+id/CadastroSenha"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
