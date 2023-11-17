@@ -91,11 +91,13 @@ public class CadastroCliente extends AppCompatActivity {
                 String cep = CadastroCEP.getText().toString();
                 String endereco = CadastroEndereço.getText().toString();
                 String plano = CadastroPlano.getSelectedItem().toString();
+                String megas = CadastroMegas.getSelectedItem().toString();
+                String mensalidade = CadastroMensal.getSelectedItem().toString();
                 String senha = CadastroSenha.getText().toString();
 
-                if (validaCampos(nome, cpf, email, telefone, cep, endereco, plano, senha)) {
+                if (validaCampos(nome, cpf, email, telefone, cep, endereco, plano, megas, mensalidade, senha)) {
                     CriacontaFirebase(email, senha);
-                    salvarDadosNoFirestore(nome, cpf, email, telefone, cep, endereco, plano, senha);
+                    salvarDadosNoFirestore(nome, cpf, email, telefone, cep, endereco, plano, megas, mensalidade, senha);
                 }
             }
         });
@@ -189,8 +191,8 @@ public class CadastroCliente extends AppCompatActivity {
         mensalAdapter.notifyDataSetChanged();
     }
 
-    private boolean validaCampos(String nome, String cpf, String email, String telefone, String cep, String endereco, String plano, String senha) {
-        if (nome.isEmpty() || cpf.isEmpty() || email.isEmpty() || telefone.isEmpty() || cep.isEmpty() || endereco.isEmpty() || plano.isEmpty() || senha.isEmpty()) {
+    private boolean validaCampos(String nome, String cpf, String email, String telefone, String cep, String endereco, String plano, String megas, String mensalidade, String senha) {
+        if (nome.isEmpty() || cpf.isEmpty() || email.isEmpty() || telefone.isEmpty() || cep.isEmpty() || endereco.isEmpty() || plano.isEmpty() || megas.isEmpty() || mensalidade.isEmpty() || senha.isEmpty()) {
             Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_SHORT).show();
             return false;
         }
@@ -213,7 +215,7 @@ public class CadastroCliente extends AppCompatActivity {
                 });
     }
 
-    private void salvarDadosNoFirestore(String nome, String cpf, String email, String telefone, String cep, String endereco, String plano, String senha) {
+    private void salvarDadosNoFirestore(String nome, String cpf, String email, String telefone, String cep, String endereco, String plano, String megas, String mensalidade, String senha) {
         Map<String, Object> dados = new HashMap<>();
         dados.put("Nome", nome);
         dados.put("CPF", cpf);
@@ -222,6 +224,8 @@ public class CadastroCliente extends AppCompatActivity {
         dados.put("CEP", cep);
         dados.put("Endereço", endereco);
         dados.put("Plano", plano);
+        dados.put("Megas", megas);
+        dados.put("Mensalidade", mensalidade);
         dados.put("Senha", senha);
 
         db.collection("cliente")
@@ -253,6 +257,8 @@ public class CadastroCliente extends AppCompatActivity {
             document.add(new Paragraph("CPF: " + cpf));
             document.add(new Paragraph("Endereço: " + endereco));
             document.add(new Paragraph("Plano: " + plano));
+            document.add(new Paragraph("Megas: " + megas));
+            document.add(new Paragraph("Mensalidade: " + mensalidade));
             document.add(new Paragraph("Telefone: " + telefone));
 
             document.close();

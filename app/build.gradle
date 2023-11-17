@@ -48,4 +48,5 @@ dependencies {
     implementation("com.google.firebase:firebase-appcheck-playintegrity")
     implementation 'com.itextpdf:itextg:5.5.10'
     implementation 'com.google.firebase:firebase-storage:XX.YY.ZZ'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
 }
