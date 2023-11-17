@@ -97,7 +97,7 @@ public class CadastroCliente extends AppCompatActivity {
 
                 if (validaCampos(nome, cpf, email, telefone, cep, endereco, plano, megas, mensalidade, senha)) {
                     CriacontaFirebase(email, senha);
-                    salvarDadosNoFirestore(nome, cpf, email, telefone, cep, endereco, plano, megas, mensalidade, senha);
+                    salvarDadosNoFirestore(nome, cpf, email, telefone, cep, endereco, plano, megas, mensalidade);
                 }
             }
         });
@@ -215,7 +215,7 @@ public class CadastroCliente extends AppCompatActivity {
                 });
     }
 
-    private void salvarDadosNoFirestore(String nome, String cpf, String email, String telefone, String cep, String endereco, String plano, String megas, String mensalidade, String senha) {
+    private void salvarDadosNoFirestore(String nome, String cpf, String email, String telefone, String cep, String endereco, String plano, String megas, String mensalidade) {
         Map<String, Object> dados = new HashMap<>();
         dados.put("Nome", nome);
         dados.put("CPF", cpf);
@@ -226,7 +226,6 @@ public class CadastroCliente extends AppCompatActivity {
         dados.put("Plano", plano);
         dados.put("Megas", megas);
         dados.put("Mensalidade", mensalidade);
-        dados.put("Senha", senha);
 
         db.collection("cliente")
                 .add(dados)
