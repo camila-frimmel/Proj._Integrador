@@ -63,6 +63,7 @@ public class CadastroCliente extends AppCompatActivity {
         setContentView(R.layout.activity_cadastrocliente);
         Salvar = findViewById(R.id.ConfirmarCadastro);
         Button Cancela = findViewById(R.id.CancelarCadastro);
+        Button Remover = findViewById(R.id.RemoveCliente);
 
         FirebaseApp.initializeApp(this);
         db = FirebaseFirestore.getInstance();
@@ -107,6 +108,14 @@ public class CadastroCliente extends AppCompatActivity {
             public void onClick(View view) {
                 PopupCad popupDialog = new PopupCad();
                 popupDialog.show(getSupportFragmentManager(), "popup_dialog");
+            }
+        });
+
+        Remover.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent rem = new Intent(getApplicationContext(), RemoveCadastro.class);
+                startActivity(rem);
             }
         });
         // Configurar o Spinner de Planos

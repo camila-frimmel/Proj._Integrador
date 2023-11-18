@@ -26,15 +26,15 @@
         android:textColorHint="#1A8414"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/ConfirmarDelete"
+        app:layout_constraintBottom_toTopOf="@+id/ConfirmaRemove"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/ConfirmarDelete"
+        android:id="@+id/ConfirmaRemove"
         android:layout_width="295dp"
-        android:layout_height="90dp"
+        android:layout_height="80dp"
         android:layout_marginStart="102dp"
         android:layout_marginEnd="103dp"
         android:layout_marginBottom="248dp"
