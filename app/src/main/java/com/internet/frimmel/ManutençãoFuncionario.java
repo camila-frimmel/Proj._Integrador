@@ -1,16 +1,15 @@
 package com.internet.frimmel;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 
@@ -34,7 +33,8 @@ public class ManutençãoFuncionario extends AppCompatActivity {
         // Configurar o acesso ao Firestore
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         db.collection("agenda")
-                .orderBy("Horário", Query.Direction.ASCENDING) // Substitua "horario" pelo nome do seu campo de horário
+                .orderBy("Data", Query.Direction.ASCENDING) // Substitua "Data" pelo nome do seu campo de data
+                .orderBy("Horário", Query.Direction.ASCENDING) // Substitua "Horário" pelo nome do seu campo de horário
                 .get()
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
@@ -44,7 +44,9 @@ public class ManutençãoFuncionario extends AppCompatActivity {
                         // Iterar sobre os documentos do Firestore e adicionar à lista
                         for (QueryDocumentSnapshot document : task.getResult()) {
                             String horarioFuncionario = document.getString("Horário");
-                            funcionariosList.add(horarioFuncionario);
+                            String dataFuncionario = document.getString("Data");
+                            String horarioEData = dataFuncionario + " - " + horarioFuncionario;
+                            funcionariosList.add(horarioEData);
                         }
 
                         // Notificar o adaptador sobre as mudanças
@@ -53,5 +55,19 @@ public class ManutençãoFuncionario extends AppCompatActivity {
                         // Lidar com erros de leitura do Firestore
                     }
                 });
+
+        listView.setOnItemClickListener((parent, view, position, id) -> {
+            // Obter o item clicado da lista
+            String itemSelecionado = funcionariosList.get(position);
+
+            // Criar uma Intent para iniciar a nova atividade (substitua "NovaAtividade.class" pelo nome da sua nova atividade)
+            Intent intent = new Intent(ManutençãoFuncionario.this, ManutencaoFunc2.class);
+
+
+            // Iniciar a nova atividade
+            startActivity(intent);
+        });
+
+
     }
 }
