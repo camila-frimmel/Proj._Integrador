@@ -49,9 +49,9 @@ public class ManutencaoFunc2 extends AppCompatActivity {
                         // Assumindo que você deseja exibir apenas o primeiro documento encontrado
                         if (!queryDocumentSnapshots.isEmpty()) {
                             DocumentSnapshot document = queryDocumentSnapshots.getDocuments().get(0);
-                            String horario = document.getString("horario");
-                            String data = document.getString("data");
-                            String obs = document.getString("obs");
+                            String horario = document.getString("Horário");
+                            String data = document.getString("Data");
+                            String obs = document.getString("Obs");
 
                             // Exibir os dados nos TextViews
                             textHorario.setText("Horário: " + horario);
