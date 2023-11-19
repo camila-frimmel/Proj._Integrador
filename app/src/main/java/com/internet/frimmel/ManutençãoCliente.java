@@ -103,7 +103,7 @@ public class ManutençãoCliente extends AppCompatActivity {
     }
 
     private void readDataFromCollection (String cliente) {
-        db.collection(cliente)
+        db.collection("cliente")
                 .get()
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override

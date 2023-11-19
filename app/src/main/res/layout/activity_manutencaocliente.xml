@@ -105,7 +105,7 @@
             android:layout_marginBottom="50dp"
             android:background="@drawable/background_corner"
             android:fontFamily="@font/itim"
-            android:hint="Endereço"
+            android:text="Endereço"
             android:paddingVertical="10dp"
             android:textAlignment="center"
             android:textColor="#1A8414"
