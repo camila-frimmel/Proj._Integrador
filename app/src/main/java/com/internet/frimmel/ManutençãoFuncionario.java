@@ -50,10 +50,8 @@ public class ManutençãoFuncionario extends AppCompatActivity {
                         for (QueryDocumentSnapshot document : task.getResult()) {
                             String horarioFuncionario = document.getString("Horário");
                             String dataFuncionario = document.getString("Data");
-                            String Data = dataFuncionario;
-                            String horario = horarioFuncionario;
-                            funcionariosList.add(Data);
-                            funcionariosList.add(horario);
+                            String horarioEData = dataFuncionario + " - " + horarioFuncionario;
+                            funcionariosList.add(horarioEData);
 
                         }
 
