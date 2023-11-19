@@ -262,7 +262,7 @@
                 android:backgroundTint="#B8D4B6"
                 android:fontFamily="@font/itim"
                 android:text="Confirmar"
-                android:textColor="#1A8414"
+                android:textColor="#2A9F88"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:cornerRadius="20dp"
@@ -337,7 +337,7 @@
             <Button
                 android:id="@+id/RemoveCliente"
                 android:layout_width="200dp"
-                android:layout_height="60dp"
+                android:layout_height="70dp"
                 android:layout_marginStart="104dp"
                 android:layout_marginEnd="105dp"
                 android:layout_marginBottom="35dp"

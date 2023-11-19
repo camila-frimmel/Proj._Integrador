@@ -50,7 +50,7 @@
             android:backgroundTint="#B8D4B6"
             android:fontFamily="@font/itim"
             android:text="Confirmar"
-            android:textColor="#1A8414"
+            android:textColor="#2A9F88"
             android:textSize="20sp"
             android:textStyle="bold"
             app:cornerRadius="20dp"
