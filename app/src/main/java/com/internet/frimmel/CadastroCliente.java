@@ -228,7 +228,7 @@ public class CadastroCliente extends AppCompatActivity {
         Map<String, Object> dados = new HashMap<>();
         dados.put("Nome", nome);
         dados.put("CPF", cpf);
-        dados.put("Email", email);
+        dados.put("email", email);
         dados.put("Telefone", telefone);
         dados.put("CEP", cep);
         dados.put("Endereço", endereco);

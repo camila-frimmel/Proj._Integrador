@@ -31,7 +31,8 @@ public class DadosCliente extends AppCompatActivity {
     private TextView textEndereço;
     private TextView textNumero;
     private TextView textPlano;
-    private TextView textMensal;
+    private TextView textEmail;
+    private TextView textMegas;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +46,8 @@ public class DadosCliente extends AppCompatActivity {
         textEndereço = findViewById(R.id.textEndereço);
         textPlano = findViewById(R.id.textPlano);
         textNumero = findViewById(R.id.textNumero);
-        textMensal = findViewById(R.id.textMensal);
+        textEmail = findViewById(R.id.textEmail);
+        textMegas = findViewById(R.id.textMegas);
 
 
         // Obtém o email do cliente autenticado a partir do Firebase Authentication
@@ -80,9 +82,11 @@ public class DadosCliente extends AppCompatActivity {
                                             String telefone = documentSnapshot.getString("Telefone");
                                             textNumero.setText("Telefone: " + telefone);
                                             String plano = documentSnapshot.getString("Plano");
-                                            textPlano.setText("Plano: " + plano);
-                                            String mensal = documentSnapshot.getString("Mensalidade");
-                                            textMensal.setText("Mensalidade: " + mensal);
+                                            textPlano.setText("" + plano);
+                                            String Email = documentSnapshot.getString("email");
+                                            textEmail.setText("Email: " + Email);
+                                            String Megas = documentSnapshot.getString("Megas");
+                                            textMegas.setText("" + Megas);
 
 
                                         } else {
