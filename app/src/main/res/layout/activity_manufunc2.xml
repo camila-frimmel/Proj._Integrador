@@ -200,12 +200,27 @@
                     android:layout_height="254dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="19dp"
-                    android:layout_marginBottom="40dp"
+                    android:layout_marginBottom="36dp"
                     android:background="@drawable/background_corner2"
                     app:layout_constraintBottom_toTopOf="@+id/AgendaConcluida"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent">
+
+                    <TextView
+                        android:id="@+id/textObs"
+                        android:layout_width="369dp"
+                        android:layout_height="252dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginBottom="1dp"
+                        android:fontFamily="@font/itim"
+                        android:paddingHorizontal="06dp"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -18,7 +18,7 @@ public class ManutencaoFunc2 extends AppCompatActivity {
     private FirebaseFirestore db;
     private TextView textHorario;
     private TextView textData;
-    private TextView textMotivo;
+    private TextView textObs;
     private TextView textNome;
     private TextView textEndereco;
     private TextView textFhone;
@@ -32,7 +32,7 @@ public class ManutencaoFunc2 extends AppCompatActivity {
         // Referências para os elementos de exibição em seu layout
         textHorario = findViewById(R.id.textHorario);
         textData = findViewById(R.id.textData);
-        textMotivo = findViewById(R.id.textMotivo);
+        textObs = findViewById(R.id.textObs);
         textNome = findViewById(R.id.textNome);
         textEndereco = findViewById(R.id.textEndereco);
         textFhone = findViewById(R.id.textFhone);
@@ -56,7 +56,7 @@ public class ManutencaoFunc2 extends AppCompatActivity {
                             // Exibir os dados nos TextViews
                             textHorario.setText("Horário: " + horario);
                             textData.setText("Data: " + data);
-                            textMotivo.setText("Observação: " + obs);
+                            textObs.setText("Observação: " + obs);
                         }
                     }
                 })
