@@ -104,7 +104,7 @@
                     android:fontFamily="@font/itim"
                     android:text="Nome:"
                     android:textColor="#1A8414"
-                    android:textSize="23sp"
+                    android:textSize="22sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toTopOf="@+id/textEndereco"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -122,7 +122,7 @@
                     android:fontFamily="@font/itim"
                     android:text="Endereço:"
                     android:textColor="#1A8414"
-                    android:textSize="23sp"
+                    android:textSize="22sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toTopOf="@+id/textHorario"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -138,7 +138,7 @@
                     android:fontFamily="@font/itim"
                     android:text="Horário:"
                     android:textColor="#1A8414"
-                    android:textSize="23sp"
+                    android:textSize="22sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toTopOf="@+id/textData"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -154,7 +154,7 @@
                     android:fontFamily="@font/itim"
                     android:text="Dia:"
                     android:textColor="#1A8414"
-                    android:textSize="23sp"
+                    android:textSize="22sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toTopOf="@+id/textFhone"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -170,10 +170,11 @@
                     android:fontFamily="@font/itim"
                     android:text="Telefone:"
                     android:textColor="#1A8414"
-                    android:textSize="23sp"
+                    android:textSize="22sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toTopOf="@+id/textMotivo"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent" />
 
                 <TextView
@@ -186,7 +187,7 @@
                     android:fontFamily="@font/itim"
                     android:text="Motivo da Manutenção:"
                     android:textColor="#1A8414"
-                    android:textSize="23sp"
+                    android:textSize="22sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toTopOf="@+id/constraintLayout10"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -211,10 +212,10 @@
                 <Button
                     android:id="@+id/AgendaConcluida"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="65sp"
                     android:layout_marginStart="83dp"
                     android:layout_marginEnd="84dp"
-                    android:layout_marginBottom="42dp"
+                    android:layout_marginBottom="40dp"
                     android:backgroundTint="#B8D4B6"
                     android:fontFamily="@font/itim"
                     android:text="Agendamento Concluído"
@@ -224,6 +225,7 @@
                     app:cornerRadius="20dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
