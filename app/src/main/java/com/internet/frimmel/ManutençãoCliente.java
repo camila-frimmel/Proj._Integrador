@@ -13,6 +13,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -102,25 +104,42 @@ public class ManutençãoCliente extends AppCompatActivity {
                 });
     }
 
-    private void readDataFromCollection (String cliente) {
-        db.collection("cliente")
-                .get()
-                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-                    @Override
-                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                        if (!queryDocumentSnapshots.isEmpty()) {
-                            DocumentSnapshot document = queryDocumentSnapshots.getDocuments().get(0);
-                            String endereco = document.getString("Endereço");
+    private void readDataFromCollection(String cliente) {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-                            ViewEndereço.setText("" + endereco);
+        if (user != null) {
+            String userEmail = user.getEmail();
+
+            // Faz a consulta no Firestore com a cláusula de filtro para o email
+            db.collection("cliente")
+                    .whereEqualTo("Email", userEmail)
+                    .get()
+                    .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                        @Override
+                        public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                            if (!queryDocumentSnapshots.isEmpty()) {
+                                // Assume que há apenas um documento correspondente ao email autenticado
+                                DocumentSnapshot document = queryDocumentSnapshots.getDocuments().get(0);
+                                String endereco = document.getString("Endereço");
+
+                                // Exibe o endereço na sua View (substitua ViewEndereço pelo ID correto)
+                                ViewEndereço.setText("" + endereco);
+                            } else {
+                                // Não há documentos correspondentes ao email autenticado
+                                Toast.makeText(ManutençãoCliente.this, "Nenhum cliente encontrado para o email autenticado", Toast.LENGTH_SHORT).show();
+                            }
                         }
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(ManutençãoCliente.this, "ERRO!", Toast.LENGTH_SHORT).show();
-                    }
-                });
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(ManutençãoCliente.this, "ERRO!", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+        } else {
+            // O usuário não está autenticado
+            Toast.makeText(ManutençãoCliente.this, "Usuário não autenticado", Toast.LENGTH_SHORT).show();
         }
     }
+
+}

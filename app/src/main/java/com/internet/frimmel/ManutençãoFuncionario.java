@@ -38,8 +38,8 @@ public class ManutençãoFuncionario extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
 
         db.collection("agenda")
-                .orderBy("Data", Query.Direction.ASCENDING) // Substitua "Data" pelo nome do seu campo de data
-                .orderBy("Horário", Query.Direction.ASCENDING) // Substitua "Horário" pelo nome do seu campo de horário
+                .orderBy("Data", Query.Direction.DESCENDING) // Substitua "Data" pelo nome do seu campo de data
+                .orderBy("Horário", Query.Direction.DESCENDING) // Substitua "Horário" pelo nome do seu campo de horário
                 .get()
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {

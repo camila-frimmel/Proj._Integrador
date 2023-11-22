@@ -237,18 +237,17 @@ public class CadastroCliente extends AppCompatActivity {
         dados.put("Mensalidade", mensalidade);
 
         db.collection("cliente")
-                .add(dados)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                .document(email)
+                .set(dados)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        String novoDocumentoId = documentReference.getId();
+                    public void onSuccess(Void aVoid) {
                         Toast.makeText(CadastroCliente.this, "Salvo no banco", Toast.LENGTH_SHORT).show();
 
                         Intent intent = new Intent(CadastroCliente.this, MenuFuncionario.class);
                         startActivity(intent);
                     }
                 })
-
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
